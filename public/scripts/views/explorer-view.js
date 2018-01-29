@@ -4,7 +4,15 @@
   var explorerView = {};
 
   explorerView.init = (ctx, next) => {
-    // init code goes here
+    $('#login').hide();
+    $('#create-account').hide();
+    $('#account').hide();
+    $('#results').hide();
+    $('#about-us').hide();
+    $('#results').hide();
+    $('#landing').hide();
+
+    $('#explorer').show();
 
     next();
   }

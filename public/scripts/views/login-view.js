@@ -4,7 +4,15 @@
   var loginView = {};
 
   loginView.init = (ctx, next) => {
-    // init code goes here
+    $('#landing').hide();
+    $('#create-account').hide();
+    $('#account').hide();
+    $('#explorer').hide();
+    $('#results').hide();
+    $('#about-us').hide();
+    $('#results').hide();
+    
+    $('#login').show();
 
     next();
   }
