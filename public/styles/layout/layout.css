@@ -19,6 +19,7 @@ h2 {
 input[type="text"] {
     width: 90%;
     margin: 1vw;
+    border-radius: 1vw;
 }
 
 footer {
@@ -34,10 +35,12 @@ form {
     border-color: #888888;
     border-width: 1px;
     border-style: solid;
+    border-radius: 1vw;
 }
 
 button {
     margin-top: 3vw;
+    border-radius: 1vw;
 }
 
 #results-img {
