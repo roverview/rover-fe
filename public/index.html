@@ -80,8 +80,7 @@
           <!--for the calendar widget-->                 <!-- size is for the animation-->
           <p>Pick A Date to view: <input type="text" id="datepicker"  size="30"></p>
          </section>
-        <section>
-          <p> A</p>  
+        <section>  
           <p>Select a camera:</p>
           <form class="camera">
             <p><input type="radio" id="camera1"> Camera 1</p>
@@ -131,7 +130,16 @@
     <script src="scripts/views/results-view.js"></script>
   <!--<script src="scripts/controllers/routes.js"></script> -->
   
- <!-- Adds icon toggle to calendar widget -->
+ 
+  <!-- <script>
+    $(function () {
+        $("#datepicker").datepicker();
+        $("#anim").change(function () {
+            $("#datepicker").datepicker("option", "showAnim", "clip");
+        });
+    });
+</script> -->
+  <!-- Adds icon toggle to calendar widget -->
 <!-- adds date restriction to scalendar widget -->
 <script>
   $( function() {
@@ -142,13 +150,10 @@
       buttonText: "Select date",
       minDate: "-1Y",
       maxDate: 1,
-      
-        });
+      });
     });
-    //$(function (){
-       // $( "#anim" ).on( "change", function() {
-        //  $( "#datepicker" ).datepicker( "clip", "showAnim", $( this ).val() );
-  //} );
   </script>
+  
+  
   </body>
 </html>
