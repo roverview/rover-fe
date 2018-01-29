@@ -1,0 +1,45 @@
+header img {
+    max-width: 100%;
+}
+
+header h1 {
+    background-color: #444444;
+    color: #FFFFFF;
+    padding: 10px;
+    text-align: center;
+    margin-top: -3px;
+    font-size: 7vw;
+}
+
+h2 {
+    font-size: 5vw;
+    text-align: center;
+}
+
+input[type="text"] {
+    width: 90%;
+    margin: 1vw;
+}
+
+footer {
+    background-color: #444444;
+    height: 40px;
+}
+
+form {
+    background-color: #444444;
+    margin: 3vw;
+    padding: 3vw;
+    text-align: center;
+    border-color: #888888;
+    border-width: 1px;
+    border-style: solid;
+}
+
+button {
+    margin-top: 3vw;
+}
+
+#results-img {
+    width: 100%;
+}
