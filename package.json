@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/roverview/rover-fe/issues"
   },
-  "homepage": "https://github.com/roverview/rover-fe#readme"
+  "homepage": "https://github.com/roverview/rover-fe#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
 }
