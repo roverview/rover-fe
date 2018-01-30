@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-
 <html>
   <head>
     <title>Rover</title>
     <!--for the calendar widget-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link rel="stylesheet" href="styles/vendor/reset.css">
     <link rel="stylesheet" href="styles/vendor/icons.css">
     <link rel="stylesheet" href="styles/base/base.css">
@@ -14,9 +12,12 @@
     <link rel="stylesheet" href="styles/modules/modules.css">
 
     <!--for the calendar widget-->
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     
-  
+    
     <script id="explorer-template" type="text/x-handlebars-template">
       <!-- Handlebars template -->
     </script>
@@ -28,6 +29,7 @@
     <script id="account-template" type="text/x-handlebars-template">
       <!-- Handlebars template -->
     </script>
+    
 
   </head>
   <body>
@@ -39,87 +41,101 @@
         <ul>
           <!-- need to enter real links for now
           NOTE for logic: If user is logged in, hide log in link. If user is not logged in, hide view favorites. -->
-          <li id="select-rover"><a href="#">Select a Rover</a></li>
-          <li id="view-favorites"><a href="#">View Favorites</a></li>
-          <li id="login"><a href="#">Log In</a></li>
-          <li id="about-us"><a href="#">About Us</a></li>
+          <li><a href="/">Select a Rover</a></li>
+          <li><a href="#">View Favorites</a></li>
+          <li><a href="/login">Log In</a></li>
+          <li><a href="/aboutus">About Us</a></li>
         </ul>
       </nav>
     </header>
     <main>      
-      <section class="container">
+
 <!-- ADDED HANDLEBAR SCAFFOLDING IN THE SECTION -->
-        <section id="login">
-          <h2>Login</h2>
-          <form id="login-form">
-            <input type="text" id="login-name" placeholder="username" required>
-            <input type="text" id="login-passphrase" placeholder="passphrase" required>
-            <button type="submit">Login</button>
+
+      <section id="login">
+        <h2>Login</h2>
+        <form id="login-form">
+          <input type="text" id="login-name" placeholder="username" required>
+          <input type="text" id="login-passphrase" placeholder="passphrase" required>
+          <button type="submit">Login</button>
+        </form>
+      </section>
+
+      <section id="create-account">
+          <h2>Create Username</h2>
+          <form id="create-form">
+            <input type="text" id="create-name" placeholder="create username" required>
+            <input type="text" id="create-passphrase" placeholder="create passphrase" required>
+            <button type="submit">Create</button>
           </form>
-        </section>
-        <section id="create-account">
-            <h2>Create Username</h2>
-            <form id="create-form">
-                <input type="text" id="create-name" placeholder="create username" required>
-                <input type="text" id="create-passphrase" placeholder="create passphrase" required>
-                <button type="submit">Create</button>
-              </form>
-        </section>
-        
-        <section id="account">
-          <p>Username: {{username}}</p>
-          <p>favorites: </p>
-          <ul id="favorites-list">
-          </ul>
-        </section>
-        <section id="landing"></section>
+      </section>
+      
+      <section id="account">
+        <h2>Account View</h2>
+        <p>Username: {{username}}</p>
+        <p>favorites: </p>
+        <ul id="favorites-list"></ul>
+      </section>
 
-        <section id="explorer">
-          <!--for the calendar widget-->                 <!-- size is for the animation-->
-          <p>Pick A Date to view: <input type="text" id="datepicker"  size="30"></p>
-         </section>
-        <section>
-          <p> A</p>  
-          <p>Select a camera:</p>
-          <form class="camera">
-            <p><input type="radio" id="camera1"> Camera 1</p>
-            <p><input type="radio" id="camera2"> Camera 2</p>
-            <p><input type="radio" id="camera3"> Camera 3</p>
-            <button type="submit">Submit</button>
+      <section id="landing">
+        <!-- add rover selection here -->
+        <a href="/explorer/curiosity"><img src="http://via.placeholder.com/150x150"></a>
+        <a href="/explorer/opportunity"><img src="http://via.placeholder.com/150x150"></a>
+        <a href="/explorer/spirit"><img src="http://via.placeholder.com/150x150"></a>
+      </section>
+
+      <section id="explorer">
+        <h2>Name of Rover</h2>
+        <!--for the calendar widget-->                 
+        <!-- size is for the animation-->
+        <p>Pick A Date to view: <input type="text" id="datepicker" size="30"></p>
+        <p>Select a camera:</p>
+          <form>
+            <select name="cameras" id="available-cameras">
+              <option value="" disabled selected>Select a Camera</option>
+            </select>
           </form>
+          
+        <form class="camera">
+          <p><input type="radio" name="camera" value="camera1"> Camera 1</p>
+          <p><input type="radio" name="camera" value="camera2"> Camera 2</p>
+          <p><input type="radio" name="camera" value="camera3"> Camera 3</p>
+          <button type="submit">Submit</button>
+        </form>
+      </section>
 
-        </section>
+      <section id="results">
 
-        <section id="results">
+        <p>Earth Date: <span id="earth-date"></span></p>
+        <p>Camera: <span id="camera-name"></span></p>
+        <img id="results-img">
 
-          <p>Earth Date: <span id="earth-date"></span></p>
-          <p>Camera: <span id="camera-name"></span></p>
-          <img id="results-img">
+        <div class="favorite-logged-in">
+          <a href="#">favorite? link/button</a>            
+        </div>
 
-          <section class="favorite-logged-in">
-            <a href="#">favorite? link/button</a>            
-          </section>
+        <div class="not-logged-in">
+          <p>Please login in to save favorites</p>
+        </div>
 
-          <section class="not-logged-in">
-            <p>Please login in to save favorites</p>
-          </section>
+      </section>
 
-        </section>
-
-        <section id="about-us">
-          <p> ABOUT US Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa fugit aperiam ad voluptatibus exercitationem ex voluptates quod minus facere tenetur dolorum saepe, quibusdam veniam voluptatum recusandae odit quas. Sapiente, esse.</p>
-        </section>
-        
-      </section>  
+      <section id="about-us">
+        <h2>About Us</h2>
+        <p> ABOUT US Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa fugit aperiam ad voluptatibus exercitationem ex voluptates quod minus facere tenetur dolorum saepe, quibusdam veniam voluptatum recusandae odit quas. Sapiente, esse.</p>
+      </section>
+      
     </main>
 
     <footer></footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
     <script src="scripts/model/app.js"></script>
     <script src="scripts/views/about-us-view.js"></script>
     <script src="scripts/views/account-view.js"></script>
@@ -128,25 +144,22 @@
     <script src="scripts/views/landing-view.js"></script>
     <script src="scripts/views/login-view.js"></script>
     <script src="scripts/views/results-view.js"></script>
-  <!--<script src="scripts/controllers/routes.js"></script> -->
+    <script src="scripts/controller/routes.js"></script>
   
- <!-- Adds icon toggle to calendar widget -->
-<!-- adds date restriction to scalendar widget -->
-<script>
-  $( function() {
-    $( "#datepicker" ).datepicker({
-      showOn: "button",
-      buttonImage: "styles/vendor/images/calendar.gif",
-      buttonImageOnly: true,
-      buttonText: "Select date",
-      minDate: "-1Y",
-      maxDate: 1,
-      //$(function (){
-       // $( "#anim" ).on( "change", function() {
-        //  $( "#datepicker" ).datepicker( "clip", "showAnim", $( this ).val() );
-        });
-    });
-  //} );
-  </script>
+    <script>
+      $( function() {
+        $( "#datepicker" ).datepicker({
+          showOn: "button",
+          buttonImage: "images/calendar.gif",
+          buttonImageOnly: true,
+          buttonText: "Select date",
+          minDate: "-1Y",
+          maxDate: 1,
+        })
+      });
+    </script>
+  
+  
+  
   </body>
 </html>
