@@ -3,4 +3,5 @@ body {
     font-size: 2.8vw;
     background-color: #000000;
     color: #FFFFFF;
+    max-width: 680px;
 }
