@@ -6,8 +6,14 @@
   accountView.init = (ctx, next) => {
     // init code goes here (with params?)
 
+    $('#login').hide();
+    $('#create-account').hide();
+    $('#landing').hide();
+    $('#explorer').hide();
+    $('#results').hide();
+    $('#about-us').show();
+
     next();
   }
-
   module.accountView = accountView;
 })(window);
