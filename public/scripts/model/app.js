@@ -105,12 +105,16 @@
   // POST (create) user
   roverData.addUser = (ctx, next) => {
     console.log('Add user:', ctx)
+    console.log(this);
+
+    // add jQuery event based on "create-form" form
+    // figure out how to pass through username
 
     $.ajax({
-      url: `${roverViewApi}/db/users/${ctx.params.username}`, // add URL
+      url: `${roverViewApi}/db/users/`, // add URL
       method: 'POST',
       data: {
-        user: this.user, // update this
+        username: this.username, // check on this...
       },
       success: function(data) {
         console.log(data);
@@ -131,6 +135,8 @@
       method: 'GET',
       success: function(data) {
         console.log(data);
+        localStorage.username = data.username;
+        localStorage.user_id = data.user_id;
         // change pages to logged in results
         // add code here to loop through all photos linked to username...? Probably...?
       }
@@ -141,21 +147,21 @@
     next();
   }
 
-  /* ROVERVIEW API - USERS */
+  /* ROVERVIEW API - IMAGES */
   // POST (create/save) favorite images
   roverData.addImage = (ctx, next) => {
     console.log('Add image:', ctx)
     // need to make sure this only happens if the user is logged in
-
+    // receive user id 
     $.ajax({
-      url: `${roverViewApi}/db/users/${ctx.params.username}`,
+      url: `${roverViewApi}/db/image`,
       method: 'POST',
       data: { // need to figure out exact properties here...
-        username: `${ctx.params.username}`,
-        roverName: this.roverName,
-        earthDate: this.earthDate,
-        camera: this.camera,
-        imgSrc: this.imgSrc,
+        rover_name: this.roverName,
+        camera_name: this.camera,
+        earth_date: this.earthDate,
+        img_src: this.imgSrc,
+        user_id: localStorage.user_id, // ?? this might not work.
       },
       success: console.log('Photo added to favorites!')
       // change star to colored in star or something?
@@ -168,11 +174,15 @@
 
   // GET (read) favorite images
   roverData.getImage = (ctx, next) => {
-    console.log('Get user:', ctx)
+    console.log('Get user id:', ctx)
+    let user_id = localStorage.user_id;
 
     $.ajax({
-      url: `${roverViewApi}/db/users/${ctx.params.username}`, // need to check params...
+      url: `${roverViewApi}/db/image/${user_id}`, // need to check params...
       method: 'GET',
+      data: {
+        user_id: localStorage.user_id,
+      },
       success: function(data) {
         console.log(data);
         // add code here to loop through all photos linked to username...? Probably...? Also all photos should have Id attached to use for delete image function
