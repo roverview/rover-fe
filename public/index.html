@@ -29,6 +29,7 @@
     <script id="account-template" type="text/x-handlebars-template">
       <!-- Handlebars template -->
     </script>
+    
 
   </head>
   <body>
@@ -87,8 +88,8 @@
         <h2>Name of Rover</h2>
         <!--for the calendar widget-->                 
         <!-- size is for the animation-->
-        <p>Pick A Date to view: <input type="text" id="datepicker" size="20"></p>
-          <p>Select a camera:</p>
+        <p>Pick A Date to view: <input type="text" id="datepicker" size="30"></p>
+        <p>Select a camera:</p>
           <form>
             <select name="cameras" id="available-cameras">
               <option value="" disabled selected>Select a Camera</option>
@@ -149,14 +150,18 @@
       $( function() {
         $( "#datepicker" ).datepicker({
           showOn: "button",
-          buttonImage: "/public/images/calendar.gif",
+          buttonImage: "images/calendar.gif",
           buttonImageOnly: true,
           buttonText: "Select date",
           minDate: "-1Y",
           maxDate: 1,
-        });
+        })
+        $( "#datepicker" ).change(function() {
+        $( "#datepicker" ).datepicker( "option", "showAnim", "clip"() );
       });
+    });
     </script>
+  
   
   
   </body>
