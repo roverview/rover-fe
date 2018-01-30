@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="styles/modules/modules.css">
 
     <!--for the calendar widget-->
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!-- <link rel="stylesheet" href="/resources/demos/style.css"> where is this? -->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     
@@ -56,7 +56,6 @@
         <h2>Login</h2>
         <form id="login-form">
           <input type="text" id="login-name" placeholder="username" required>
-          <input type="text" id="login-passphrase" placeholder="passphrase" required>
           <button type="submit">Login</button>
         </form>
       </section>
@@ -65,64 +64,87 @@
           <h2>Create Username</h2>
           <form id="create-form">
             <input type="text" id="create-name" placeholder="create username" required>
-            <input type="text" id="create-passphrase" placeholder="create passphrase" required>
             <button type="submit">Create</button>
           </form>
       </section>
       
       <section id="account">
         <h2>Account View</h2>
-        <p>Username: {{username}}</p>
-        <p>favorites: </p>
-        <ul id="favorites-list"></ul>
+        <div class="box">
+          <p>Username: {{username}}</p>
+          <p>favorites: </p>
+          <ul id="favorites-list"></ul>
+        </div>
       </section>
 
       <section id="landing">
         <!-- add rover selection here -->
-        <a href="/explorer/curiosity"><img src="images/curiosity.jpg"></a>
+
+        <h2>Pick a Rover</h2>
+        <div class="box">
+         <a href="/explorer/curiosity"><img src="images/curiosity.jpg"></a>
         <a href="/explorer/opportunity"><img src="images/rover2_400 (1).jpg"></a>
         <a href="/explorer/spirit"><img src="http://via.placeholder.com/150x150"></a>
+        </div>
       </section>
 
       <section id="explorer">
         <h2>Name of Rover</h2>
-        <!--for the calendar widget-->                 
-        <!-- size is for the animation-->
-        <p>Pick A Date to view: <input type="text" id="datepicker" size="30"></p>
-        <p>Select a camera:</p>
-          <form>
+
+        <form class="camera">
+          <!--for the calendar widget-->                 
+          <!-- size is for the animation-->
+          <p>Pick A Date to view:</p>
+
+          <p><input type="text" id="datepicker" size="30"></p>
+
+          <p>Select a camera:</p>
             <select name="cameras" id="available-cameras">
               <option value="" disabled selected>Select a Camera</option>
             </select>
-          </form>
-          
-        <form class="camera">
-          <p><input type="radio" name="camera" value="camera1"> Camera 1</p>
-          <p><input type="radio" name="camera" value="camera2"> Camera 2</p>
-          <p><input type="radio" name="camera" value="camera3"> Camera 3</p>
           <button type="submit">Submit</button>
         </form>
       </section>
 
       <section id="results">
+        <h2>Name of pic?</h2>
+        <div class="box">
+          <p>Earth Date: <span id="earth-date"></span></p>
+          <p>Camera: <span id="camera-name"></span></p>
+          <img id="results-img">
 
-        <p>Earth Date: <span id="earth-date"></span></p>
-        <p>Camera: <span id="camera-name"></span></p>
-        <img id="results-img">
+          <div class="favorite-logged-in">
+            <a href="#">favorite? link/button</a>            
+          </div>
 
-        <div class="favorite-logged-in">
-          <a href="#">favorite? link/button</a>            
+          <div class="not-logged-in">
+            <p>Please login in to save favorites</p>
+          </div>
         </div>
-
-        <div class="not-logged-in">
-          <p>Please login in to save favorites</p>
-        </div>
-
       </section>
 
       <section id="about-us">
         <h2>About Us</h2>
-        <p> ABOUT US Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa fugit aperiam ad voluptatibus exercitationem ex voluptates quod minus facere tenetur dolorum saepe, quibusdam veniam voluptatum recusandae odit quas. Sapiente, esse.</p>
+        <div class="box">
+          <h3>Jay Adams</h3>
+          <img src="http://placehold.it/300x300">
+          <p> ABOUT US Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa fugit aperiam ad voluptatibus exercitationem ex voluptates quod minus facere tenetur dolorum saepe, quibusdam veniam voluptatum recusandae odit quas. Sapiente, esse.</p>
+        </div>
+        <div class="box">
+          <h3>Bessie Arino</h3>
+          <img src="http://placehold.it/300x300">
+          <p> ABOUT US Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa fugit aperiam ad voluptatibus exercitationem ex voluptates quod minus facere tenetur dolorum saepe, quibusdam veniam voluptatum recusandae odit quas. Sapiente, esse.</p>
+        </div>
+        <div class="box">
+          <h3>Melanie Cohen</h3>
+          <img src="http://placehold.it/300x300">
+          <p> ABOUT US Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa fugit aperiam ad voluptatibus exercitationem ex voluptates quod minus facere tenetur dolorum saepe, quibusdam veniam voluptatum recusandae odit quas. Sapiente, esse.</p>
+        </div>
+        <div class="box">
+          <h3>Joshua Fredrickson</h3>
+          <img src="http://placehold.it/300x300">
+          <p> ABOUT US Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa fugit aperiam ad voluptatibus exercitationem ex voluptates quod minus facere tenetur dolorum saepe, quibusdam veniam voluptatum recusandae odit quas. Sapiente, esse.</p>
+        </div>
       </section>
       
     </main>
