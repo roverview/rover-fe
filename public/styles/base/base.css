@@ -4,3 +4,7 @@ body {
     background-color: #000000;
     color: #FFFFFF;
 }
+
+strong {
+    font-weight: bold;
+}
