@@ -58,3 +58,12 @@ a:link, a:hover, a:visited {
 h3 {
     font-size: 4vw;
 }
+
+#login, #create-account, #account, #explorer, #results, #about-us {
+    display: none;
+    /* hides these sections for initial load */
+}
+
+#login-form p {
+    margin-top: 2.5vw;
+}
