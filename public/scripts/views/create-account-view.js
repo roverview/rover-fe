@@ -8,11 +8,11 @@
     // init code goes here
 
     $('#login').hide();
-    $('#account').hide();
+    $('#account').show();
     $('#landing').hide();
     $('#explorer').hide();
     $('#results').hide();
-    $('#about-us').show();
+    $('#about-us').hide();
 
     next();
   }
