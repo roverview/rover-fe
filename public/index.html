@@ -11,8 +11,10 @@
     <link rel="stylesheet" href="styles/layout/layout.css">
     <link rel="stylesheet" href="styles/modules/modules.css">
 
-    <!-- for the calendar widget -->
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!--for the calendar widget-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
     
     <script id="explorer-template" type="text/x-handlebars-template">
       <!-- Handlebars template -->
@@ -46,6 +48,7 @@
     <main>      
 
 <!-- ADDED HANDLEBAR SCAFFOLDING IN THE SECTION -->
+
       <section id="login">
         <h2>Login</h2>
         <form id="login-form">
@@ -124,8 +127,10 @@
     <footer></footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
     <script src="scripts/model/app.js"></script>
@@ -138,7 +143,16 @@
     <script src="scripts/views/results-view.js"></script>
     <script src="scripts/controller/routes.js"></script>
   
-<!-- Adds icon toggle to calendar widget -->
+ 
+  <!-- <script>
+    $(function () {
+        $("#datepicker").datepicker();
+        $("#anim").change(function () {
+            $("#datepicker").datepicker("option", "showAnim", "clip");
+        });
+    });
+</script> -->
+  <!-- Adds icon toggle to calendar widget -->
 <!-- adds date restriction to scalendar widget -->
 <script>
   $( function() {
@@ -149,12 +163,10 @@
       buttonText: "Select date",
       minDate: "-1Y",
       maxDate: 1,
-      //$(function (){
-       // $( "#anim" ).on( "change", function() {
-        //  $( "#datepicker" ).datepicker( "clip", "showAnim", $( this ).val() );
-        });
+      });
     });
-  //} );
   </script>
+  
+  
   </body>
 </html>
