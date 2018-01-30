@@ -4,6 +4,7 @@
   var createAccountView = {};
 
   createAccountView.init = (ctx, next) => {
+    console.log('hello create account view')
     // init code goes here
 
     $('#login').hide();
