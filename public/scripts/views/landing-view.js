@@ -6,7 +6,7 @@
   var landingView = {};
 
   landingView.init = (ctx, next) => {
- 
+
     $('#login').hide();
     $('#create-account').hide();
     $('#account').hide();
