@@ -71,11 +71,12 @@
       </section>
       
       <section id="account">
-        <h2>Account View</h2>
+        <h2>Favorites</h2>
         <div class="box">
-          <p>Username: {{username}}</p>
-          <p>favorites: </p>
-          <ul id="favorites-list"></ul>
+          <p><strong>Earth Date:</strong> {{earthdate}}</p>
+          <p><strong>Camera:</strong> {{camera name}}</p>
+          <img src="http://placehold.it/300x300">
+          <p>Delete photo from favorites?</p>
         </div>
       </section>
 
@@ -114,41 +115,38 @@
       </section>
 
       <section id="results">
-        <h2>Name of pic?</h2>
         <div class="box">
-          <p>Earth Date: <span id="earth-date"></span></p>
-          <p>Camera: <span id="camera-name"></span></p>
+          <p><strong>Earth Date:</strong> <span id="earth-date"></span></p>
+          <p><strong>Camera:</strong> <span id="camera-name"></span></p>
           <img id="results-img">
 
-          <div class="favorite-logged-in">
-            <a href="#">favorite? link/button</a>            
-          </div>
+            <p class="logged-in"><a href="#">favorite? link/button</a></p>         
 
-          <div class="not-logged-in">
-            <p>Please login in to save favorites</p>
-          </div>
+            <p class="not-logged-in"><a href="/login">Please login in to save favorites.</a></p>
         </div>
       </section>
 
       <section id="about-us">
         <h2>About Us</h2>
+
         <div class="box">
           <h3>Jay Adams</h3>
           <img src="http://placehold.it/300x300">
           <p> Likes a good cup of coffee. His motto is decelerate into the curves and accelerate out of 'em.!</p>
         </div>
+
         <div class="box">
           <h3>Bessie Arino</h3>
           <img src="http://placehold.it/300x300">
-
           <p> I was previously working in Customer Service and am now my father's care giver. I was introduced to Code Fellows from a friend that was also interested in attending. I'm at Code Fellows to become a Full-stack JavaScript Developer. Eventually I would like to become a web developer in the cannabis industry.</p>
-
         </div>
+
         <div class="box">
           <h3>Melanie Cohen</h3>
           <img src="http://placehold.it/300x300">
           <p> Melanie is a Program Manager-turned-Dev and happens to be an indecisive hiker. Tired of trying to find hikes on the WTA site only to discover they were too far away or too long for a day trip, she thought a “Find A Hike” app could help her and other PNW hikers discover new adventures that fit their energy and skill levels.</p>
         </div>
+
         <div class="box">
           <h3>Joshua Fredrickson</h3>
           <img src="http://placehold.it/300x300">
