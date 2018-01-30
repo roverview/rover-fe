@@ -1,11 +1,12 @@
 'use strict';
 
-// basically the index view
+// basically the index/home view
 
 (function(module) {
   var landingView = {};
 
   landingView.init = (ctx, next) => {
+ 
     $('#login').hide();
     $('#create-account').hide();
     $('#account').hide();
@@ -13,7 +14,7 @@
     $('#results').hide();
     $('#about-us').hide();
     $('#results').hide();
-    
+
     $('#landing').show();
 
     next();

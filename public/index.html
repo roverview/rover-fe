@@ -16,7 +16,6 @@
     <!--for the calendar widget-->
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     
-  
     <script id="explorer-template" type="text/x-handlebars-template">
       <!-- Handlebars template -->
     </script>
@@ -39,10 +38,10 @@
         <ul>
           <!-- need to enter real links for now
           NOTE for logic: If user is logged in, hide log in link. If user is not logged in, hide view favorites. -->
-          <li><a href="/public">Select a Rover</a></li>
+          <li><a href="/">Select a Rover</a></li>
           <li><a href="#">View Favorites</a></li>
-          <li><a href="#">Log In</a></li>
-          <li><a href="#">About Us</a></li>
+          <li><a href="/login">Log In</a></li>
+          <li><a href="/aboutus">About Us</a></li>
         </ul>
       </nav>
     </header>
@@ -118,8 +117,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
     <script src="scripts/model/app.js"></script>
     <script src="scripts/views/about-us-view.js"></script>
     <script src="scripts/views/account-view.js"></script>
@@ -128,7 +127,7 @@
     <script src="scripts/views/landing-view.js"></script>
     <script src="scripts/views/login-view.js"></script>
     <script src="scripts/views/results-view.js"></script>
-  <!--<script src="scripts/controllers/routes.js"></script> -->
+    <script src="scripts/controller/routes.js"></script>
   
  <!-- Adds icon toggle to calendar widget -->
 <!-- adds date restriction to scalendar widget -->
