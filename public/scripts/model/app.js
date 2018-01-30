@@ -3,7 +3,8 @@
 (function(module) {
   let roverData = {}
 
-  let roverViewApi = 'https://rover-be-staging.herokuapp.com'
+  // let roverViewApi = 'https://rover-be-staging.herokuapp.com'
+  let roverViewApi = 'http://localhost:4000'
   let apiPhotoUrl = 'https://api.nasa.gov/mars-photos/api/v1/rovers/';
   let apiManifestUrl = 'https://api.nasa.gov/mars-photos/api/v1/manifests/';
   let apiKey = 'F7GBoBZ1JBWwwehiwisVuPyIkX8yk8W6rmsDHazU';
@@ -105,27 +106,27 @@
 
   /* ROVERVIEW API - USERS */
   // POST (create) user
-  roverData.addUser = (ctx, next) => {
-    console.log('Add user:', ctx)
-    console.log(this);
+  roverData.addUser = username => {
+    console.log('add user function',username);
+    let newUser = username;
+    
+    let User = {
+      login: newUser,
+    }
+
+    console.log(User);
 
     // add jQuery event based on "create-form" form
     // figure out how to pass through username
-
-    $.ajax({
-      url: `${roverViewApi}/db/users/`, // add URL
+    $.post({
+      url: `${roverViewApi}/db/users`, // add URL
       method: 'POST',
-      data: {
-        username: this.username, // check on this...
-      },
+      data: {json:JSON.stringify(newUser)},
       success: function(data) {
         console.log(data);
-      }
-        .catch(err => {
-          console.error(err);
-        })
+      },
     })
-    next();
+    // next();
   }
 
   // GET (read) user
