@@ -94,15 +94,6 @@
       },
       success: function(data) {
         console.log('mission manifest',data)
-        // let launchDate = data.photo_manifest.launch_date;
-        // let landingDate = data.photo_manifest.landing_date;
-        // let maxDate = data.photo_manifest.max_date;
-        // let status = data.photo_manifest.status;
-
-        // $('#launchdate').text(launchDate);
-        // $('#landingdate').text(landingDate);
-        // $('#maxdate').text(maxDate);
-        // $('#status').text(status);
       }
     })
 
