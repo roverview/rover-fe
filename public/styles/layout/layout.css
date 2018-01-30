@@ -27,7 +27,7 @@ footer {
     height: 40px;
 }
 
-form {
+form, .box {
     background-color: #444444;
     margin: 3vw;
     padding: 3vw;
