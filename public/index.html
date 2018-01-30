@@ -29,6 +29,7 @@
     <script id="account-template" type="text/x-handlebars-template">
       <!-- Handlebars template -->
     </script>
+    
 
   </head>
   <body>
@@ -78,11 +79,12 @@
 
       <section id="landing">
         <!-- add rover selection here -->
+
         <h2>Pick a Rover</h2>
         <div class="box">
-          <a href="/explorer/curiosity"><img src="http://via.placeholder.com/150x150"></a>
-          <a href="/explorer/opportunity"><img src="http://via.placeholder.com/150x150"></a>
-          <a href="/explorer/spirit"><img src="http://via.placeholder.com/150x150"></a>
+         <a href="/explorer/curiosity"><img src="images/curiosity.jpg"></a>
+        <a href="/explorer/opportunity"><img src="images/rover2_400 (1).jpg"></a>
+        <a href="/explorer/spirit"><img src="http://via.placeholder.com/150x150"></a>
         </div>
       </section>
 
@@ -94,16 +96,12 @@
           <!-- size is for the animation-->
           <p>Pick A Date to view:</p>
 
-          <p><input type="text" id="datepicker" size="20"></p>
+          <p><input type="text" id="datepicker" size="30"></p>
 
           <p>Select a camera:</p>
             <select name="cameras" id="available-cameras">
               <option value="" disabled selected>Select a Camera</option>
             </select>
-          
-          <p><input type="radio" name="camera" value="camera1"> Camera 1</p>
-          <p><input type="radio" name="camera" value="camera2"> Camera 2</p>
-          <p><input type="radio" name="camera" value="camera3"> Camera 3</p>
           <button type="submit">Submit</button>
         </form>
       </section>
@@ -179,9 +177,10 @@
           buttonText: "Select date",
           minDate: "-1Y",
           maxDate: 1,
-        });
+        })
       });
     </script>
+  
   
   
   </body>

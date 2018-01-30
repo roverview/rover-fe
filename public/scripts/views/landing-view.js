@@ -14,7 +14,6 @@
     $('#results').hide();
     $('#about-us').hide();
     $('#results').hide();
-
     $('#landing').show();
 
     next();

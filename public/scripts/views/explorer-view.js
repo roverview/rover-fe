@@ -10,7 +10,6 @@
     $('#landing').hide();
     $('#results').hide();
     $('#about-us').hide();
-
     $('#explorer').show();
 
     next();
