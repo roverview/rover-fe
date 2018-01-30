@@ -13,8 +13,10 @@
   // We might need to filter the drop-down further based on date
   roverData.fetchCameras = (ctx, next) => {
     let rover = ctx.params.rover;
-    console.log('ctx:',ctx)
-
+    console.log('ctx:',ctx);
+    let roverName = rover.charAt(0).toUpperCase() + rover.slice(1);
+    console.log('rover name: ', roverName);
+    $('#explorer h2').text(roverName);
     $.ajax({
       url: `${apiPhotoUrl}/${rover}`,
       method: 'GET',
