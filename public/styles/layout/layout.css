@@ -18,6 +18,7 @@ header h1 {
 h2 {
     font-size: 5vw;
     text-align: center;
+    margin-top: 2vw;
 }
 
 input[type="text"] {
