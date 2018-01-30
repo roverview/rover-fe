@@ -4,13 +4,12 @@
   var loginView = {};
 
   loginView.init = (ctx, next) => {
-    $('#landing').hide();
     $('#create-account').hide();
     $('#account').hide();
+    $('#landing').hide();
     $('#explorer').hide();
     $('#results').hide();
     $('#about-us').hide();
-    $('#results').hide();
     
     $('#login').show();
 
