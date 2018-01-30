@@ -8,6 +8,38 @@
   let apiKey = 'F7GBoBZ1JBWwwehiwisVuPyIkX8yk8W6rmsDHazU';
 
   /* MARS PHOTO API */
+  // GET cameras for rovers, populate drop-down on page load
+  // We might need to filter the drop-down further based on date
+  roverData.fetchCameras = (ctx, next) => {
+    let rover = ctx.params.rover;
+    console.log('ctx:',ctx)
+
+    $.ajax({
+      url: `${apiPhotoUrl}/${rover}`,
+      method: 'GET',
+      dataType: 'JSON',
+      data: {
+        'api_key': apiKey,
+      },
+      success: function(data) {
+        console.log('available cameras:',data.rover.cameras);
+        let cameras = [];
+
+        for(var i = 0; i < data.rover.cameras.length; i++) {
+          let cameraName = data.rover.cameras[i].name;
+          let fullName = data.rover.cameras[i].full_name;
+          let htmlOption = `<option value="${cameraName}">${fullName}</option>`;
+
+          if (cameras.indexOf(fullName) === -1) {
+            cameras.push(fullName);
+            $('#available-cameras').append(`"${htmlOption}"`);
+          }
+        }
+      }
+    })
+    // next();
+  }
+
   // GET & render photo from Mars Photo API
   roverData.fetchPhoto = (ctx, next) => {
     let rover = 'curiosity';
@@ -35,7 +67,6 @@
         $('#results img').attr('src', photo);
       }
     })
-
     next();
   }
 
@@ -63,15 +94,6 @@
       },
       success: function(data) {
         console.log('mission manifest',data)
-        // let launchDate = data.photo_manifest.launch_date;
-        // let landingDate = data.photo_manifest.landing_date;
-        // let maxDate = data.photo_manifest.max_date;
-        // let status = data.photo_manifest.status;
-
-        // $('#launchdate').text(launchDate);
-        // $('#landingdate').text(landingDate);
-        // $('#maxdate').text(maxDate);
-        // $('#status').text(status);
       }
     })
 
@@ -115,12 +137,12 @@
       .catch(err => {
         console.error(err);
       })
-    // next();
+    next();
   }
 
   roverData.getUser = (ctx, next) => {
     console.log('Get user:', ctx)
-    
+
     $.ajax({
       url: ``, // add URL
       method: 'GET',
@@ -130,7 +152,7 @@
         // if username & passphrase match, redirect to another page?
       }
     })
-    // next();
+    next();
   }
 
   module.roverData = roverData;

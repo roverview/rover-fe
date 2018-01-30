@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-
 <html>
   <head>
     <title>Rover</title>
     <!--for the calendar widget-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link rel="stylesheet" href="styles/vendor/reset.css">
     <link rel="stylesheet" href="styles/vendor/icons.css">
     <link rel="stylesheet" href="styles/base/base.css">
@@ -15,8 +13,8 @@
 
     <!--for the calendar widget-->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
     
     <script id="explorer-template" type="text/x-handlebars-template">
       <!-- Handlebars template -->
@@ -59,37 +57,48 @@
           <button type="submit">Login</button>
         </form>
       </section>
+
       <section id="create-account">
           <h2>Create Username</h2>
           <form id="create-form">
-              <input type="text" id="create-name" placeholder="create username" required>
-              <input type="text" id="create-passphrase" placeholder="create passphrase" required>
-              <button type="submit">Create</button>
-            </form>
+            <input type="text" id="create-name" placeholder="create username" required>
+            <input type="text" id="create-passphrase" placeholder="create passphrase" required>
+            <button type="submit">Create</button>
+          </form>
       </section>
       
       <section id="account">
         <h2>Account View</h2>
         <p>Username: {{username}}</p>
         <p>favorites: </p>
-        <ul id="favorites-list">
-        </ul>
+        <ul id="favorites-list"></ul>
       </section>
-      <section id="landing"></section>
+
+      <section id="landing">
+        <!-- add rover selection here -->
+        <a href="/explorer/curiosity"><img src="http://via.placeholder.com/150x150"></a>
+        <a href="/explorer/opportunity"><img src="http://via.placeholder.com/150x150"></a>
+        <a href="/explorer/spirit"><img src="http://via.placeholder.com/150x150"></a>
+      </section>
 
       <section id="explorer">
         <h2>Name of Rover</h2>
-        <form class="camera">
         <!--for the calendar widget-->                 
         <!-- size is for the animation-->
-        <p>Pick A Date to view: <input type="text" id="datepicker"  size="30"></p>
+        <p>Pick A Date to view: <input type="text" id="datepicker" size="30"></p>
           <p>Select a camera:</p>
+          <form>
+            <select name="cameras" id="available-cameras">
+              <option value="" disabled selected>Select a Camera</option>
+            </select>
+          </form>
+          
+        <form class="camera">
           <p><input type="radio" name="camera" value="camera1"> Camera 1</p>
           <p><input type="radio" name="camera" value="camera2"> Camera 2</p>
           <p><input type="radio" name="camera" value="camera3"> Camera 3</p>
           <button type="submit">Submit</button>
         </form>
-
       </section>
 
       <section id="results">
