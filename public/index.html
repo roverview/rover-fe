@@ -12,9 +12,11 @@
     <link rel="stylesheet" href="styles/modules/modules.css">
 
     <!--for the calendar widget-->
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
     
     <script id="explorer-template" type="text/x-handlebars-template">
       <!-- Handlebars template -->
@@ -85,7 +87,7 @@
         <h2>Name of Rover</h2>
         <!--for the calendar widget-->                 
         <!-- size is for the animation-->
-        <p>Pick A Date to view: <input type="text" id="datepicker" size="30"></p>
+        <p>Pick A Date to view: <input type="text" id="datepicker" size="20"></p>
           <p>Select a camera:</p>
           <form>
             <select name="cameras" id="available-cameras">
@@ -143,29 +145,18 @@
     <script src="scripts/views/results-view.js"></script>
     <script src="scripts/controller/routes.js"></script>
   
- 
-  <!-- <script>
-    $(function () {
-        $("#datepicker").datepicker();
-        $("#anim").change(function () {
-            $("#datepicker").datepicker("option", "showAnim", "clip");
+    <script>
+      $( function() {
+        $( "#datepicker" ).datepicker({
+          showOn: "button",
+          buttonImage: "/public/images/calendar.gif",
+          buttonImageOnly: true,
+          buttonText: "Select date",
+          minDate: "-1Y",
+          maxDate: 1,
         });
-    });
-</script> -->
-  <!-- Adds icon toggle to calendar widget -->
-<!-- adds date restriction to scalendar widget -->
-<script>
-  $( function() {
-    $( "#datepicker" ).datepicker({
-      showOn: "button",
-      buttonImage: "styles/vendor/images/calendar.gif",
-      buttonImageOnly: true,
-      buttonText: "Select date",
-      minDate: "-1Y",
-      maxDate: 1,
       });
-    });
-  </script>
+    </script>
   
   
   </body>
