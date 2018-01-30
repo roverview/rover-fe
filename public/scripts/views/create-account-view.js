@@ -8,7 +8,8 @@
     // init code goes here
 
     $('#login').hide();
-    $('#account').show();
+    $('#create-account').show();
+    $('#account').hide();
     $('#landing').hide();
     $('#explorer').hide();
     $('#results').hide();
