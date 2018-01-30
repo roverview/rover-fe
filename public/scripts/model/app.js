@@ -3,6 +3,7 @@
 (function(module) {
   let roverData = {}
 
+  let roverViewApi = 'https://rover-be-staging.herokuapp.com'
   let apiPhotoUrl = 'https://api.nasa.gov/mars-photos/api/v1/rovers/';
   let apiManifestUrl = 'https://api.nasa.gov/mars-photos/api/v1/manifests/';
   let apiKey = 'F7GBoBZ1JBWwwehiwisVuPyIkX8yk8W6rmsDHazU';
@@ -100,39 +101,64 @@
     next();
   }
 
-  /* ROVERVIEW API */
-  /* DATABASE TABLES
-    - Table 1 - users
-      - create users, 'POST' user to DB
-      - fetch users, 'GET' user from DB
-      - each user needs an id
-    - Table 2 - user favorites
-      - foreign ID to link to user table
-      - Photo URL
-      - Earth date
-      - Camera name
-
-    APP FUNCTIONS
-    - POST (create) user
-    - GET (read) user
-    - GET (read) image related to user
-    - POST (create) image related to user
-    - DELETE image related to user
-  */
-
+  /* ROVERVIEW API - USERS */
   // POST (create) user
   roverData.addUser = (ctx, next) => {
     console.log('Add user:', ctx)
 
     $.ajax({
-      url: ``, // add URL
+      url: `${roverViewApi}/db/users/${ctx.params.username}`, // add URL
       method: 'POST',
       data: {
         user: this.user, // update this
-        passphrase: this.passphrase, // update this
       },
-      // need to change the window assign below - my version is hacky
-      success: window.location.assign('/'),
+      success: function(data) {
+        console.log(data);
+      }
+        .catch(err => {
+          console.error(err);
+        })
+    })
+    next();
+  }
+
+  // GET (read) user
+  roverData.getUser = (ctx, next) => {
+    console.log('Get user:', ctx)
+
+    $.ajax({
+      url: `${roverViewApi}/db/users/${ctx.params.username}`, // need to check params...
+      method: 'GET',
+      success: function(data) {
+        console.log(data);
+        // change pages to logged in results
+        // add code here to loop through all photos linked to username...? Probably...?
+      }
+        .catch(err => {
+          console.error(err);
+        })
+    })
+    next();
+  }
+
+  /* ROVERVIEW API - USERS */
+  // POST (create/save) favorite images
+  roverData.addImage = (ctx, next) => {
+    console.log('Add image:', ctx)
+    // need to make sure this only happens if the user is logged in
+
+    $.ajax({
+      url: `${roverViewApi}/db/users/${ctx.params.username}`,
+      method: 'POST',
+      data: { // need to figure out exact properties here...
+        username: `${ctx.params.username}`,
+        roverName: this.roverName,
+        earthDate: this.earthDate,
+        camera: this.camera,
+        imgSrc: this.imgSrc,
+      },
+      success: console.log('Photo added to favorites!')
+      // change star to colored in star or something?
     })
       .catch(err => {
         console.error(err);
@@ -140,18 +166,45 @@
     next();
   }
 
-  roverData.getUser = (ctx, next) => {
+  // GET (read) favorite images
+  roverData.getImage = (ctx, next) => {
     console.log('Get user:', ctx)
 
     $.ajax({
-      url: ``, // add URL
+      url: `${roverViewApi}/db/users/${ctx.params.username}`, // need to check params...
       method: 'GET',
       success: function(data) {
-        console.log(data)
-
-        // if username & passphrase match, redirect to another page?
+        console.log(data);
+        // add code here to loop through all photos linked to username...? Probably...? Also all photos should have Id attached to use for delete image function
       }
+        .catch(err => {
+          console.error(err);
+        })
     })
+    next();
+  }
+
+  // DELETE (delete) favorite images
+  roverData.deleteImage = (ctx, next) => {
+    console.log('Delete image:', ctx)
+    // need to make sure this only happens if the user is logged in
+
+    // use jQuery like so:
+    // $('#delete-book').on('click', function() {
+    // which would trigger the following ajax call:
+
+    $.ajax({
+      url: `${roverViewApi}/db/users/${ctx.params.username}/${ctx.params.imgId}`,
+      method: 'DELETE',
+      data: {
+        // what do we do here lol
+      },
+      success: console.log('Photo deleted from favorites')
+      // change star to grey star or something?
+    })
+      .catch(err => {
+        console.error(err);
+      })
     next();
   }
 
