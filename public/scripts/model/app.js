@@ -10,14 +10,11 @@
   let apiKey = 'F7GBoBZ1JBWwwehiwisVuPyIkX8yk8W6rmsDHazU';
 
   /* MARS PHOTO API */
-  // GET cameras for rovers, populate drop-down on page load
-  // We might need to filter the drop-down further based on date
   roverData.fetchCameras = (rover, date) => {
-    // let rover = ctx.params.rover;
-    // console.log('ctx:',ctx);
 
-    console.log(rover);
-    console.log(date);
+    console.log(rover)
+    console.log(date)
+
 
     $.ajax({
       url: `${apiPhotoUrl}/${rover}/photos?earth_date=2018-01-29`,
