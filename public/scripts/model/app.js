@@ -129,8 +129,8 @@
       method: 'GET',
       success: function(data) {
         console.log(data);
-        localStorage.username = data.username;
-        localStorage.user_id = data.user_id;
+        localStorage.username = data.rows[0].username;
+        localStorage.user_id = data.rows[0].id;
         // change pages to logged in results
         // add code here to loop through all photos linked to username...? Probably...?
       }
