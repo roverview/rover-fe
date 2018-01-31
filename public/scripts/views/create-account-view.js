@@ -14,6 +14,13 @@
     $('#results').hide();
     $('#about-us').hide();
 
+    if(localStorage.id) {
+      $('#nav-login').hide();
+    } else {
+      $('#nav-favorites').hide();
+      $('#nav-logout').hide();
+    };
+
     $('#create-account button').on('click', function(e) {
       e.preventDefault();
 
