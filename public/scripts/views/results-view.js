@@ -11,8 +11,8 @@
     $('#account').hide();
     $('#landing').hide();
     $('#explorer').hide();
-    $('#about-us').show();
-
+    $('#about-us').hide();
+    $('#results').show();
     next();
   }
 
