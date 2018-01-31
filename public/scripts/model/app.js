@@ -69,6 +69,12 @@
         $('#camera-name').text(camera);
         $('#results-img').attr('src', photo);
         $('#results').show();
+
+        if(localStorage.user_id) {
+          $('.not-logged-in').hide();
+        } else {
+          $('.logged-in').hide();
+        };
       }
     });
   };
@@ -168,6 +174,24 @@
       success: function(data) {
         console.log('psql data:',data);
         // add code here to loop through all photos linked to username...? Probably...? Also all photos should have Id attached to use for delete image function
+      
+
+        data.rows.forEach(function(item) {
+          let content = `
+            <form>
+            <p><strong>Rover:</strong> ${item.rover_name}</p>
+            <p><strong>Earth Date:</strong> ${item.earth_date}</p>
+            <p><strong>Camera:</strong> ${item.camera_name}</p>
+            <img src="${item.image_src}">
+            <p class="photoDelete">&#x274C Delete photo from favorites?</p>
+            <input type="hidden" id="${item.id}">
+            <input type="hidden" id="${item.image_id}">
+            </form>
+          `;
+          $('.favorites-container').append(content);
+        });
+
+
       }
     });
   };
