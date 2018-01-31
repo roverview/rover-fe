@@ -3,8 +3,8 @@
 (function(module) {
   let roverData = {}
 
-  // let roverViewApi = 'https://rover-be-staging.herokuapp.com'
-  let roverViewApi = 'http://localhost:4000'
+  // let roverViewApi = 'https://rover-be-staging.herokuapp.com';
+  let roverViewApi = 'http://localhost:4000';
   let apiPhotoUrl = 'https://api.nasa.gov/mars-photos/api/v1/rovers/';
   let apiManifestUrl = 'https://api.nasa.gov/mars-photos/api/v1/manifests/';
   let apiKey = 'F7GBoBZ1JBWwwehiwisVuPyIkX8yk8W6rmsDHazU';
@@ -37,12 +37,12 @@
           if (cameras.indexOf(fullName) === -1) {
             cameras.push(fullName);
             $('#available-cameras').append(`"${htmlOption}"`);
-          }
-        }
+          };
+        };
       }
-    })
+    });
     // next();
-  }
+  };
 
   // GET & render photo from Mars Photo API
   roverData.fetchPhoto = (ctx, next) => {
@@ -58,7 +58,7 @@
         'api_key': apiKey,
       },
       success: function(data) {
-        console.log('photo data:',data)
+        console.log('photo data:',data);
 
         let photo = data.photos[0].img_src;
         let camera = data.photos[0].camera.full_name;
@@ -70,20 +70,20 @@
         $('#camera-name').text(camera);
         $('#results img').attr('src', photo);
       }
-    })
+    });
     next();
-  }
+  };
 
   // Change date format from 2018-01-28 to 01-28-2018
   roverData.renderDate = date => {
-    let newDate = date.split('-')
+    let newDate = date.split('-');
 
     newDate.push(newDate[0]);
     newDate.shift();
     newDate.join('-');
 
     return newDate.join('-');
-  }
+  };
 
   // GET mission manifest for each rover from Mars Rover API
   roverData.fetchManifest = (ctx, next) => {
@@ -99,10 +99,10 @@
       success: function(data) {
         console.log('mission manifest',data)
       }
-    })
+    });
 
     next();
-  }
+  };
 
   /* ROVERVIEW API - USERS */
   // POST (create) user
@@ -117,12 +117,12 @@
       success: function(data) {
         console.log(data);
       }
-    })
-  }
+    });
+  };
 
   // GET (read) user
   roverData.getUser = username => {
-    console.log('Get user:', username)
+    console.log('Get user:', username);
 
     $.ajax({
       url: `${roverViewApi}/db/users/${username}`, 
@@ -135,14 +135,14 @@
         // add code here to loop through all photos linked to username...? Probably...?
       }
        
-    })
+    });
     // next();
-  }
+  };
 
   /* ROVERVIEW API - IMAGES */
   // POST (create/save) favorite images
   roverData.addImage = (ctx, next) => {
-    console.log('Add image:', ctx)
+    console.log('Add image:', ctx);
     // need to make sure this only happens if the user is logged in
     // receive user id 
     $.ajax({
@@ -160,13 +160,13 @@
     })
       .catch(err => {
         console.error(err);
-      })
+      });
     next();
   }
 
   // GET (read) favorite images
   roverData.getImage = (ctx, next) => {
-    console.log('Get user id:', ctx)
+    console.log('Get user id:', ctx);
     let user_id = localStorage.user_id;
 
     $.ajax({
@@ -182,13 +182,13 @@
         .catch(err => {
           console.error(err);
         })
-    })
+    });
     next();
-  }
+  };
 
   // DELETE (delete) favorite images
   roverData.deleteImage = (ctx, next) => {
-    console.log('Delete image:', ctx)
+    console.log('Delete image:', ctx);
     // need to make sure this only happens if the user is logged in
 
     // use jQuery like so:
@@ -206,9 +206,9 @@
     })
       .catch(err => {
         console.error(err);
-      })
+      });
     next();
-  }
+  };
 
   module.roverData = roverData;
 })(window)

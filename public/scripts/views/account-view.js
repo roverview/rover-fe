@@ -15,6 +15,6 @@
     $('#account').show();
 
     next();
-  }
+  };
   module.accountView = accountView;
 })(window);

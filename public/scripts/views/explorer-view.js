@@ -13,7 +13,7 @@
     $('#explorer').show();
 
     next();
-  }
+  };
 
   module.explorerView = explorerView;
 })(window);

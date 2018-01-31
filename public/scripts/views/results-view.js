@@ -14,7 +14,7 @@
     $('#about-us').hide();
     $('#results').show();
     next();
-  }
+  };
 
   module.resultsView = resultsView;
 })(window);

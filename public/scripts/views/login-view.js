@@ -17,15 +17,15 @@
 
       let User = {
         username: $('#login-name').val(),
-      }
+      };
 
       console.log('user login obj:',User)
       console.log('user login.username:',User.username)
 
       window.roverData.getUser(User.username);
 
-    })
-  }
+    });
+  };
 
   module.loginView = loginView;
 })(window);
