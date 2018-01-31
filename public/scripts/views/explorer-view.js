@@ -12,11 +12,10 @@
     $('#about-us').hide();
     $('#explorer').show();
 
-    $('h2').text(ctx.params.rover);
-    // NEEDS UPDATE: need to put to upper case at some point
-    // let roverName = rover.charAt(0).toUpperCase() + rover.slice(1);
-    // console.log('rover name: ', roverName);
-    // $('#explorer h2').text(roverName);
+    let rover = ctx.params.rover;
+    let roverHeader = rover.charAt(0).toUpperCase() + rover.slice(1);
+    console.log('rover name: ', roverHeader);
+    $('#explorer h2').text(roverHeader);
 
     $('#datepicker').on('change', function(e) {
       e.preventDefault();
