@@ -124,7 +124,7 @@
     console.log('Get user:', username);
 
     $.ajax({
-      url: `${roverViewApi}/db/users/${username}`, 
+      url: `${roverViewApi}/db/users/${username}`,
       method: 'GET',
       success: function(data) {
         console.log(data);
@@ -158,18 +158,15 @@
   };
 
   // GET (read) favorite images
-  roverData.getImage = (ctx, next) => {
-    console.log('Get user id:', ctx);
-    let user_id = localStorage.user_id;
+  roverData.getImage = userId => {
+    console.log('USER ID',userId)
 
     $.ajax({
-      url: `${roverViewApi}/db/image/${user_id}`, // need to check params...
+      url: `${roverViewApi}/db/image/${userId}`,
       method: 'GET',
-      data: {
-        user_id: localStorage.user_id,
-      },
+      dataType:'json',
       success: function(data) {
-        console.log(data);
+        console.log('psql data:',data);
         // add code here to loop through all photos linked to username...? Probably...? Also all photos should have Id attached to use for delete image function
       }
     });
