@@ -7,5 +7,6 @@ page('/aboutus', window.aboutUsView.init);
 page('/explorer/:rover/results', resultsView.init);
 page('/createaccount', window.createAccountView.init);
 page('/account', accountView.init);
+page('/logout', window.landingView.init);
 
 page();
