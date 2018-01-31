@@ -28,7 +28,8 @@
       e.preventDefault();
 
       let roverName = ctx.params.rover;
-      let pickedDate = $('#datepicker').val();
+      let pickedDate = $('#alt_date').val();
+
       console.log('picked date:',pickedDate)
 
       window.roverData.fetchCameras(roverName,pickedDate)
@@ -38,7 +39,7 @@
       e.preventDefault();
 
       let roverName = ctx.params.rover;
-      let pickedDate = $('#datepicker').val();
+      let pickedDate = $('#alt_date').val();
       let pickedCamera = $('#available-cameras option:checked').val();
 
       console.log('picked date:',pickedDate)
@@ -51,7 +52,7 @@
       e.preventDefault();
 
       let roverName = ctx.params.rover;
-      let earthDate = $('#datepicker').val();
+      let earthDate = $('#alt_date').val();
       let cameraName = $('#available-cameras option:checked').val();
       let imageUrl = $('#results-img').attr('src');
       console.log('roverName', roverName);

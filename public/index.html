@@ -14,11 +14,6 @@
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <!-- Handlebars template -->
-  <script id="explorer-template" type="text/x-handlebars-template"></script>
-  <script id="results-template" type="text/x-handlebars-template"></script>
-  <script id="account-template" type="text/x-handlebars-template"></script>
-      <!-- Handlebars template -->
 </head>
 <body>
 
@@ -100,7 +95,8 @@
         <!--for the calendar widget-->
         <p>Pick A Date to view:</p>
         <p>
-          <input type="text" id="datepicker">
+          <input type="text" id="datepicker" alt="#alt_date">
+          <input type="hidden" id="alt_date">
         </p>
 
         <p>Select a camera:</p>
@@ -122,7 +118,6 @@
           <span id="camera-name"></span>
         </p>
         <img id="results-img">
-        <img src="http://placehold.it/300x300">
 
         <p class="logged-in">
           <a href="#">favorite? link/button &#9829</a>
@@ -210,6 +205,7 @@
       buttonText: "Select date",
       showAnim: "clip", 
       altFormat: 'yy-mm-dd',
+      altField: '#alt_date',
       });
     });
   </script>
