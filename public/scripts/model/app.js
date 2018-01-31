@@ -12,43 +12,45 @@
   /* MARS PHOTO API */
   // GET cameras for rovers, populate drop-down on page load
   // We might need to filter the drop-down further based on date
-  roverData.fetchCameras = (ctx, next) => {
-    let rover = ctx.params.rover;
-    console.log('ctx:',ctx);
-    let roverName = rover.charAt(0).toUpperCase() + rover.slice(1);
-    console.log('rover name: ', roverName);
-    $('#explorer h2').text(roverName);
+  roverData.fetchCameras = (rover, date) => {
+    // let rover = ctx.params.rover;
+    // console.log('ctx:',ctx);
+
+    console.log(rover)
+    console.log(date)
+
     $.ajax({
-      url: `${apiPhotoUrl}/${rover}`,
+      url: `${apiPhotoUrl}/${rover}/photos?earth_date=2018-01-29`,
       method: 'GET',
       dataType: 'JSON',
       data: {
         'api_key': apiKey,
       },
       success: function(data) {
-        console.log('available cameras:',data.rover.cameras);
+        console.log('available photos',data.photos)
+        console.log('available cameras',data.photos[0].camera)
         let cameras = [];
 
-        for(var i = 0; i < data.rover.cameras.length; i++) {
-          let cameraName = data.rover.cameras[i].name;
-          let fullName = data.rover.cameras[i].full_name;
+        for(var i = 0; i < data.photos.length; i++) {
+          let cameraName = data.photos[i].camera.name;
+          let fullName = data.photos[i].camera.full_name;
           let htmlOption = `<option value="${cameraName}">${fullName}</option>`;
 
           if (cameras.indexOf(fullName) === -1) {
             cameras.push(fullName);
-            $('#available-cameras').append(`"${htmlOption}"`);
-          };
-        };
+
+            $('#available-cameras').append(`${htmlOption}`);
+          }
+        }
       }
-    });
-    // next();
-  };
+    })
+  }
 
   // GET & render photo from Mars Photo API
-  roverData.fetchPhoto = (ctx, next) => {
-    let rover = 'curiosity';
-    let date = '2018-1-28';
-    let camera = 'fhaz';
+  roverData.fetchPhoto = (rover, date, camera) => {
+    console.log('rover:',rover)
+    console.log('date:',date)
+    console.log('camera:',camera)
 
     $.ajax({
       url: `${apiPhotoUrl}${rover}/photos?earth_date=${date}&camera=${camera}`,
@@ -70,9 +72,9 @@
         $('#camera-name').text(camera);
         $('#results img').attr('src', photo);
       }
-    });
-    next();
-  };
+    })
+  }
+
 
   // Change date format from 2018-01-28 to 01-28-2018
   roverData.renderDate = date => {
@@ -99,10 +101,9 @@
       success: function(data) {
         console.log('mission manifest',data)
       }
-    });
+    })
+  }
 
-    next();
-  };
 
   /* ROVERVIEW API - USERS */
   // POST (create) user
@@ -134,10 +135,9 @@
         // change pages to logged in results
         // add code here to loop through all photos linked to username...? Probably...?
       }
-       
-    });
-    // next();
-  };
+    })
+  }
+
 
   /* ROVERVIEW API - IMAGES */
   // POST (create/save) favorite images
@@ -158,10 +158,6 @@
       success: console.log('Photo added to favorites!')
       // change star to colored in star or something?
     })
-      .catch(err => {
-        console.error(err);
-      });
-    next();
   }
 
   // GET (read) favorite images
@@ -179,12 +175,9 @@
         console.log(data);
         // add code here to loop through all photos linked to username...? Probably...? Also all photos should have Id attached to use for delete image function
       }
-        .catch(err => {
-          console.error(err);
-        })
-    });
-    next();
-  };
+    })
+  }
+
 
   // DELETE (delete) favorite images
   roverData.deleteImage = (ctx, next) => {
@@ -204,11 +197,8 @@
       success: console.log('Photo deleted from favorites')
       // change star to grey star or something?
     })
-      .catch(err => {
-        console.error(err);
-      });
-    next();
-  };
+  }
+
 
   module.roverData = roverData;
 })(window)
