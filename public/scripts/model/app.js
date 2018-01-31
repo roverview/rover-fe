@@ -108,25 +108,16 @@
   // POST (create) user
   roverData.addUser = username => {
     console.log('add user function',username);
-    let newUser = username;
-    
-    let User = {
-      login: newUser,
-    }
 
-    console.log(User);
-
-    // add jQuery event based on "create-form" form
-    // figure out how to pass through username
-    $.post({
-      url: `${roverViewApi}/db/users`, // add URL
-      method: 'POST',
-      data: {json:JSON.stringify(newUser)},
+    $.ajax({
+      url: `${roverViewApi}/db/users`,
+      type: 'POST',
+      data: { 'user': username },
+      dataType:'json',
       success: function(data) {
         console.log(data);
-      },
+      }
     })
-    // next();
   }
 
   // GET (read) user
