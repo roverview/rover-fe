@@ -1,198 +1,244 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Rover</title>
-    <!--for the calendar widget-->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles/vendor/reset.css">
-    <link rel="stylesheet" href="styles/vendor/icons.css">
-    <link rel="stylesheet" href="styles/base/base.css">
-    <link rel="stylesheet" href="styles/layout/layout.css">
-    <link rel="stylesheet" href="styles/modules/modules.css">
 
-    <!--for the calendar widget-->
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <!-- <link rel="stylesheet" href="/resources/demos/style.css"> where is this? -->
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    
-    
-    <script id="explorer-template" type="text/x-handlebars-template">
+<head>
+  <title>Rover</title>
+  <!--for the calendar widget-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles/vendor/reset.css">
+  <link rel="stylesheet" href="styles/vendor/icons.css">
+  <link rel="stylesheet" href="styles/base/base.css">
+  <link rel="stylesheet" href="styles/layout/layout.css">
+  <link rel="stylesheet" href="styles/modules/modules.css">
+
+  <!--for the calendar widget-->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <!-- <link rel="stylesheet" href="/resources/demos/style.css"> where is this? -->
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+  <script id="explorer-template" type="text/x-handlebars-template">
       <!-- Handlebars template -->
     </script>
 
-    <script id="results-template" type="text/x-handlebars-template">
+  <script id="results-template" type="text/x-handlebars-template">
       <!-- Handlebars template -->
     </script>
 
-    <script id="account-template" type="text/x-handlebars-template">
+  <script id="account-template" type="text/x-handlebars-template">
       <!-- Handlebars template -->
     </script>
-    
 
-  </head>
-  <body>
-    <header>
-      <nav class="main-nav" onclick = "void(0)">
-        <div class="icon-menu"></div>
-        <ul>
-          <!-- need to enter real links for now
+
+</head>
+
+<body>
+  <header>
+    <nav class="main-nav" onclick="void(0)">
+      <div class="icon-menu"></div>
+      <ul>
+        <!-- need to enter real links for now
             NOTE for logic: If user is logged in, hide log in link. If user is not logged in, hide view favorites. -->
-            <li><a href="/">Select a Rover</a></li>
-            <li><a href="#">View Favorites</a></li>
-            <li><a href="/login">Log In</a></li>
-            <li><a href="/aboutus">About Us</a></li>
-          </ul>
-        </nav>
-        <img src="images/mars2020-mast-rover-head-br2.jpg">
-        <h1>RoverView</h1>
-    </header>
-    <main>      
+        <li>
+          <a href="/">Select a Rover</a>
+        </li>
+        <li>
+          <a href="#">View Favorites</a>
+        </li>
+        <li>
+          <a href="/login">Log In</a>
+        </li>
+        <li>
+          <a href="/aboutus">About Us</a>
+        </li>
+      </ul>
+    </nav>
+    <img src="images/mars2020-mast-rover-head-br2.jpg">
+    <h1>RoverView</h1>
+  </header>
+  <main>
 
-<!-- ADDED HANDLEBAR SCAFFOLDING IN THE SECTION -->
+    <!-- ADDED HANDLEBAR SCAFFOLDING IN THE SECTION -->
 
-      <section id="login">
-        <h2>Login</h2>
-        <form id="login-form">
-          <input type="text" id="login-name" placeholder="username" required>
-          <button type="submit">Login</button>
+    <section id="login">
+      <h2>Login</h2>
+      <form id="login-form">
+        <input type="text" id="login-name" placeholder="username" required>
+        <button type="submit">Login</button>
 
-          <p><a href="/createaccount">Don't have a username? Click here to create your account.</a></p>
-        </form>
-      </section>
+        <p>
+          <a href="/createaccount">Don't have a username? Click here to create your account.</a>
+        </p>
+      </form>
+    </section>
 
-      <section id="create-account">
-          <h2>Create Username</h2>
-          <form id="create-form">
-            <input type="text" id="create-name" placeholder="create username" required>
-            <button type="submit">Create</button>
-          </form>
-      </section>
+    <section id="create-account">
+      <h2>Create Username</h2>
+      <form id="create-form">
+        <input type="text" id="create-name" placeholder="create username" required>
+        <button type="submit">Create</button>
+      </form>
+    </section>
+
+    <section id="account">
+      <h2>Favorites</h2>
+      <div class="box">
+        <p>
+          <strong>Rover:</strong> {{rover}}</p>
+        <p>
+          <strong>Earth Date:</strong> {{earthdate}}</p>
+        <p>
+          <strong>Camera:</strong> {{camera name}}</p>
+
+        <img src="http://placehold.it/300x300">
+        <p class="photoDelete">&#x274C Delete photo from favorites?</p>
+      </div>
+    </section>
+
+    <section id="landing">
+      <!-- add rover selection here -->
+
+      <h2>Pick a Rover</h2>
+      <div class="box">
+        <a href="/explorer/curiosity">
+          <h3>Curiosity</h3>
+          <img src="images/curiosity.jpg">
+        </a>
+        <a href="/explorer/opportunity">
+          <h3>Opportunity</h3>
+          <img src="images/rover2_400 (1).jpg">
+        </a>
+      </div>
+    </section>
+
+    <section id="explorer">
+      <h2>Name of Rover</h2>
+
+      <form class="camera">
+        <!--for the calendar widget-->
+        <p>Pick A Date to view:</p>
+        <p>
+          <input type="text" id="datepicker">
+        </p>
+
+        <p>Select a camera:</p>
+        <select name="cameras" id="available-cameras">
+          <option value="" disabled selected>Select a Camera</option>
+        </select>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+
+    <section id="results">
+      <div class="box">
+        <p>
+          <strong>Earth Date:</strong>
+          <span id="earth-date"></span>
+        </p>
+        <p>
+          <strong>Camera:</strong>
+          <span id="camera-name"></span>
+        </p>
+        <img id="results-img">
+        <img src="http://placehold.it/300x300">
+
+        <p class="logged-in">
+          <a href="#">favorite? link/button &#9829</a>
+        </p>
+
+        <p class="not-logged-in">
+          <a href="/login">Please login in to save favorites.</a>
+        </p>
+      </div>
+    </section>
+
+    <section id="about-us">
+      <h2>About Us</h2>
+
+      <div class="box">
+        <h3>Jay Adams</h3>
+        <img src="http://placehold.it/300x300">
+        <p> Likes a good cup of coffee. His motto is decelerate into the curves and accelerate out of 'em.! Aspires to be Doc
+          Brown, becuase,"Roads?!? Where we're going, we don't need roads." </p>
+      </div>
+
+      <div class="box">
+        <h3>Bessie Arino</h3>
+        <img src="http://placehold.it/300x300">
+        <p> I was previously working in Customer Service and am now my father's care giver. I was introduced to Code Fellows
+          from a friend that was also interested in attending. I'm at Code Fellows to become a Full-stack JavaScript Developer.
+          Eventually I would like to become a web developer in the cannabis industry. Aspires to be Dr Buckaroo Banzai, becuase
+          "Hey, hey, hey, hey-now. Don’t be mean; we don’t have to be mean, cuz, remember, no matter where you go, there
+          you are. " </p>
+      </div>
+
+      <div class="box">
+        <h3>Melanie Cohen</h3>
+        <img src="http://placehold.it/300x300">
+        <p> Melanie is a Program Manager-turned-Dev and happens to be an indecisive hiker. Tired of trying to find hikes on the
+          WTA site only to discover they were too far away or too long for a day trip, she thought a “Find A Hike” app could
+          help her and other PNW hikers discover new adventures that fit their energy and skill levels. Aspires to be Dr.
+          Bruce Bannor becuase "Mr. McGee, Don't make me angry. You wouldn't like me when I'm angry." </p>
+      </div>
+
+      <div class="box">
+        <h3>Joshua Fredrickson</h3>
+        <img src="http://placehold.it/300x300">
+        <p> Hey, I'm Joshua Fredrickson aka the old guy in the group. I am a customer focused individual who is always improving
+          , passionate about innovation,and an inventory professional. My focus is on being a full stack JavaScript Developer.
+          Aspires to be Dr.Pamela Lillian Isley, becuase, "You seem to have me confused with some warm-blooded damsel in
+          distress</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer></footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+  <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+  <script src="scripts/model/app.js"></script>
+  <script src="scripts/views/about-us-view.js"></script>
+  <script src="scripts/views/account-view.js"></script>
+  <script src="scripts/views/create-account-view.js"></script>
+  <script src="scripts/views/explorer-view.js"></script>
+  <script src="scripts/views/landing-view.js"></script>
+  <script src="scripts/views/login-view.js"></script>
+  <script src="scripts/views/results-view.js"></script>
+  <script src="scripts/controller/routes.js"></script>
+
+  <script>
+    $(function () {
+      $('#datepicker').datepicker({ 
+      dateFormat: 'mm/dd/yy',
+      minDate: "-1y", 
+      maxDate:0,
+      showOn: "button", 
+      buttonImage: "images/calendar.gif",
+      buttonImageOnly: true,
+      buttonText: "Select date",
+      showAnim: "clip", 
+      altFormat: 'yy-mm-dd',
+
+    });
       
-      <section id="account">
-        <h2>Favorites</h2>
-        <div class="box">
-          <p><strong>Rover:</strong> {{rover}}</p>
-          <p><strong>Earth Date:</strong> {{earthdate}}</p>
-          <p><strong>Camera:</strong> {{camera name}}</p>
-          
-          <img src="http://placehold.it/300x300">
-          <p class="photoDelete">&#x274C Delete photo from favorites?</p>
-        </div>
-      </section>
-
-      <section id="landing">
-        <!-- add rover selection here -->
-
-        <h2>Pick a Rover</h2>
-        <div class="box">
-          <a href="/explorer/curiosity">
-            <h3>Curiosity</h3>
-            <img src="images/curiosity.jpg">
-          </a>
-          <a href="/explorer/opportunity">
-            <h3>Opportunity</h3>
-            <img src="images/rover2_400 (1).jpg">
-          </a>
-        </div>
-      </section>
-
-      <section id="explorer">
-        <h2>Name of Rover</h2>
-
-        <form class="camera">
-          <!--for the calendar widget-->                 
-          <p>Pick A Date to view:</p>
-          <p><input type="text" id="datepicker"></p>
-
-          <p>Select a camera:</p>
-            <select name="cameras" id="available-cameras">
-              <option value="" disabled selected>Select a Camera</option>
-            </select>
-          <button type="submit">Submit</button>
-        </form>
-      </section>
-
-      <section id="results">
-        <div class="box">
-          <p><strong>Earth Date:</strong> <span id="earth-date"></span></p>
-          <p><strong>Camera:</strong> <span id="camera-name"></span></p>
-          <img id="results-img">
-          <img src="http://placehold.it/300x300">
-
-            <p class="logged-in"><a href="#">favorite? link/button &#9829</a></p>         
-
-            <p class="not-logged-in"><a href="/login">Please login in to save favorites.</a></p>
-        </div>
-      </section>
-
-      <section id="about-us">
-        <h2>About Us</h2>
-
-        <div class="box">
-          <h3>Jay Adams</h3>
-          <img src="http://placehold.it/300x300">
-          <p> Likes a good cup of coffee. His motto is decelerate into the curves and accelerate out of 'em.! Aspires to be Doc Brown, becuase,"Roads?!? Where we're going, we don't need roads." </p>
-        </div>
-
-        <div class="box">
-          <h3>Bessie Arino</h3>
-          <img src="http://placehold.it/300x300">
-          <p> I was previously working in Customer Service and am now my father's care giver. I was introduced to Code Fellows from a friend that was also interested in attending. I'm at Code Fellows to become a Full-stack JavaScript Developer. Eventually I would like to become a web developer in the cannabis industry. Aspires to be Dr Buckaroo Banzai, becuase "Hey, hey, hey, hey-now. Don’t be mean; we don’t have to be mean, cuz, remember, no matter where you go, there you are. " </p>
-        </div>
-
-        <div class="box">
-          <h3>Melanie Cohen</h3>
-          <img src="http://placehold.it/300x300">
-          <p> Melanie is a Program Manager-turned-Dev and happens to be an indecisive hiker. Tired of trying to find hikes on the WTA site only to discover they were too far away or too long for a day trip, she thought a “Find A Hike” app could help her and other PNW hikers discover new adventures that fit their energy and skill levels. Aspires to be Dr. Bruce Bannor becuase "Mr. McGee, Don't make me angry. You wouldn't like me when I'm angry."  </p>
-        </div>
-
-        <div class="box">
-          <h3>Joshua Fredrickson</h3>
-          <img src="http://placehold.it/300x300">
-          <p> Hey, I'm Joshua Fredrickson aka the old guy in the group.  I am a customer focused individual who is always improving , passionate about innovation,and an inventory professional.  My focus is on being a full stack JavaScript Developer. Aspires to be Dr.Pamela Lillian Isley, becuase, "You seem to have me confused with some warm-blooded damsel in distress</p>
-        </div>
-      </section>
-      
-    </main>
-
-    <footer></footer>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-    <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
-    <script src="scripts/model/app.js"></script>
-    <script src="scripts/views/about-us-view.js"></script>
-    <script src="scripts/views/account-view.js"></script>
-    <script src="scripts/views/create-account-view.js"></script>
-    <script src="scripts/views/explorer-view.js"></script>
-    <script src="scripts/views/landing-view.js"></script>
-    <script src="scripts/views/login-view.js"></script>
-    <script src="scripts/views/results-view.js"></script>
-    <script src="scripts/controller/routes.js"></script>
-  
-    <script>
-      $( function() {
-        $('#datepicker').datepicker({ dateFormat: 'yy-mm-dd' }),
-        $( "#datepicker" ).datepicker({
-          showOn: "button",
-          buttonImage: "images/calendar.gif",
-          buttonImageOnly: true,
-          buttonText: "Select date",
-          minDate: "-1Y",
-          maxDate: 1,
-        })
-       });
+    });
   </script>
-  
-    
-  
-  
-  
-  </body>
+
+
+});
+
+
+
+
+
+</body>
+
 </html>
