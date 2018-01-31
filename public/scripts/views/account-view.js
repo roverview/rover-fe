@@ -4,8 +4,6 @@
   var accountView = {};
 
   accountView.init = (ctx, next) => {
-    // init code goes here (with params?)
-
     $('#login').hide();
     $('#create-account').hide();
     $('#landing').hide();
@@ -19,9 +17,13 @@
     } else {
       $('#nav-favorites').hide();
       $('#nav-logout').hide();
-    };
+    }
 
-    next();
+    $('document').ready(function() {    
+      let userId = JSON.parse(localStorage.user_id);
+      window.roverData.getImage(userId)
+    })
+
   };
   module.accountView = accountView;
 })(window);
