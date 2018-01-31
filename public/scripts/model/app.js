@@ -139,8 +139,8 @@
 
   /* ROVERVIEW API - IMAGES */
   // POST (create/save) favorite images
-  roverData.addImage = (ctx, next) => {
-    console.log('Add image:', ctx);
+  roverData.addImage = (rover, date, camera, img_url) => {
+    console.log('Add image:', );
     // need to make sure this only happens if the user is logged in
     // receive user id 
     $.ajax({

@@ -39,6 +39,21 @@
 
       window.roverData.fetchPhoto(roverName, pickedDate, pickedCamera);
     })
+
+    $('.logged-in a').on('click', function(e) {
+      e.preventDefault();
+
+      let roverName = ctx.params.rover;
+      let earthDate = $('#datepicker').val();
+      let cameraName = $('#available-cameras option:checked').val();
+      let imageUrl = $('#results-img').attr('src');
+      console.log('roverName', roverName);
+      console.log('earthDate', earthDate);
+      console.log('cameraName', cameraName);
+      console.log('imageUrl', imageUrl);
+
+      window.roverData.addImage(roverName, earthDate, cameraName, imageUrl);
+    })
   }
 
   module.explorerView = explorerView;
