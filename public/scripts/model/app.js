@@ -1,7 +1,7 @@
 'use strict';
 
 (function(module) {
-  let roverData = {}
+  let roverData = {};
 
   // let roverViewApi = 'https://rover-be-staging.herokuapp.com';
   let roverViewApi = 'http://localhost:4000';
@@ -16,8 +16,8 @@
     // let rover = ctx.params.rover;
     // console.log('ctx:',ctx);
 
-    console.log(rover)
-    console.log(date)
+    console.log(rover);
+    console.log(date);
 
     $.ajax({
       url: `${apiPhotoUrl}/${rover}/photos?earth_date=2018-01-29`,
@@ -27,8 +27,8 @@
         'api_key': apiKey,
       },
       success: function(data) {
-        console.log('available photos',data.photos)
-        console.log('available cameras',data.photos[0].camera)
+        console.log('available photos',data.photos);
+        console.log('available cameras',data.photos[0].camera);
         let cameras = [];
 
         for(var i = 0; i < data.photos.length; i++) {
@@ -40,17 +40,17 @@
             cameras.push(fullName);
 
             $('#available-cameras').append(`${htmlOption}`);
-          }
-        }
+          };
+        };
       }
-    })
-  }
+    });
+  };
 
   // GET & render photo from Mars Photo API
   roverData.fetchPhoto = (rover, date, camera) => {
-    console.log('rover:',rover)
-    console.log('date:',date)
-    console.log('camera:',camera)
+    console.log('rover:',rover);
+    console.log('date:',date);
+    console.log('camera:',camera);
 
     $.ajax({
       url: `${apiPhotoUrl}${rover}/photos?earth_date=${date}&camera=${camera}`,
@@ -72,8 +72,8 @@
         $('#camera-name').text(camera);
         $('#results img').attr('src', photo);
       }
-    })
-  }
+    });
+  };
 
 
   // Change date format from 2018-01-28 to 01-28-2018
@@ -99,10 +99,10 @@
         'api_key': apiKey
       },
       success: function(data) {
-        console.log('mission manifest',data)
+        console.log('mission manifest',data);
       }
-    })
-  }
+    });
+  };
 
 
   /* ROVERVIEW API - USERS */
@@ -135,8 +135,8 @@
         // change pages to logged in results
         // add code here to loop through all photos linked to username...? Probably...?
       }
-    })
-  }
+    });
+  };
 
 
   /* ROVERVIEW API - IMAGES */
@@ -157,8 +157,8 @@
       },
       success: console.log('Photo added to favorites!')
       // change star to colored in star or something?
-    })
-  }
+    });
+  };
 
   // GET (read) favorite images
   roverData.getImage = (ctx, next) => {
@@ -175,8 +175,8 @@
         console.log(data);
         // add code here to loop through all photos linked to username...? Probably...? Also all photos should have Id attached to use for delete image function
       }
-    })
-  }
+    });
+  };
 
 
   // DELETE (delete) favorite images
@@ -196,8 +196,8 @@
       },
       success: console.log('Photo deleted from favorites')
       // change star to grey star or something?
-    })
-  }
+    });
+  };
 
 
   module.roverData = roverData;
