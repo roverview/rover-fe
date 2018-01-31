@@ -193,6 +193,11 @@
     });
   };
 
+  $('#nav-logout').on('click', function(e) {
+    localStorage.clear();
+    $('#nav-login').show();
+  });
+
 
   module.roverData = roverData;
 })(window)

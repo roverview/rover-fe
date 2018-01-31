@@ -47,7 +47,7 @@
   <main>
     <section id="login">
       <h2>Login</h2>
-      <form id="login-form">
+      <form id="login-form" action="/">
         <input type="text" id="login-name" placeholder="username" required>
         <button type="submit">Login</button>
         <p><a href="/createaccount">Don't have a username? Click here to create your account.</a></p>
@@ -56,7 +56,7 @@
 
     <section id="create-account">
       <h2>Create Username</h2>
-      <form id="create-form">
+      <form id="create-form" action="/login">
         <input type="text" id="create-name" placeholder="create username" required>
         <button type="submit">Create</button>
       </form>
