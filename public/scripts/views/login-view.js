@@ -20,7 +20,6 @@
     };
 
     $('#login-form button').on('click', function(e) {
-      e.preventDefault();
 
       let User = {
         username: $('#login-name').val(),
