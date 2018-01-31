@@ -14,7 +14,7 @@
     $('#results').hide();
     $('#about-us').hide();
 
-    if(localStorage.id) {
+    if(localStorage.user_id) {
       $('#nav-login').hide();
     } else {
       $('#nav-favorites').hide();
