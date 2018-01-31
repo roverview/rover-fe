@@ -16,8 +16,15 @@
     $('#results').hide();
     $('#landing').show();
 
+    if(localStorage.user_id) {
+      $('#nav-login').hide();
+    } else {
+      $('#nav-favorites').hide();
+      $('#nav-logout').hide();
+    };
+
     next();
-  }
+  };
 
   module.landingView = landingView;
 })(window);

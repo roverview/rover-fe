@@ -1,3 +1,7 @@
+header {
+    position: relative;
+}
+
 header img {
     max-width: 100%;
 }
@@ -14,6 +18,7 @@ header h1 {
 h2 {
     font-size: 5vw;
     text-align: center;
+    margin-top: 2vw;
 }
 
 input[type="text"] {
@@ -27,7 +32,7 @@ footer {
     height: 40px;
 }
 
-form {
+form, .box {
     background-color: #444444;
     margin: 3vw;
     padding: 3vw;

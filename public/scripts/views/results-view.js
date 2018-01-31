@@ -11,10 +11,18 @@
     $('#account').hide();
     $('#landing').hide();
     $('#explorer').hide();
-    $('#about-us').show();
+    $('#about-us').hide();
+    $('#results').show();
+
+    if(localStorage.user_id) {
+      $('#nav-login').hide();
+    } else {
+      $('#nav-favorites').hide();
+      $('#nav-logout').hide();
+    };
 
     next();
-  }
+  };
 
   module.resultsView = resultsView;
 })(window);
