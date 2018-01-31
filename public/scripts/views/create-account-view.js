@@ -4,7 +4,7 @@
   var createAccountView = {};
 
   createAccountView.init = (ctx, next) => {
-    console.log('hello create account view')
+    console.log('hello create account view');
 
     $('#login').hide();
     $('#create-account').show();
@@ -19,15 +19,15 @@
 
       let User = {
         username: $('#create-name').val(),
-      }
+      };
 
-      console.log('user obj:',User)
-      console.log('user.username:',User.username)
+      console.log('user obj:',User);
+      console.log('user.username:',User.username);
 
       window.roverData.addUser(User.username);
 
-    })
-  }
+    });
+  };
 
   module.createAccountView = createAccountView;
 })(window);

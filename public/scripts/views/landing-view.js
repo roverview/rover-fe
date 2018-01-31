@@ -17,7 +17,7 @@
     $('#landing').show();
 
     next();
-  }
+  };
 
   module.landingView = landingView;
 })(window);
