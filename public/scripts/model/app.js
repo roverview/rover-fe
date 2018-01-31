@@ -193,7 +193,7 @@
     });
   };
 
-  $('#nav-logout').on('click', function(e) {
+  $('#nav-logout a').on('click', function(e) {
     localStorage.clear();
     $('#nav-login').show();
   });
