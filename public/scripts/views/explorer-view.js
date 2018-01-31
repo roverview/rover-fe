@@ -12,6 +12,13 @@
     $('#about-us').hide();
     $('#explorer').show();
 
+    if(localStorage.id) {
+      $('#nav-login').hide();
+    } else {
+      $('#nav-favorites').hide();
+      $('#nav-logout').hide();
+    };
+
     let rover = ctx.params.rover;
     let roverHeader = rover.charAt(0).toUpperCase() + rover.slice(1);
     console.log('rover name: ', roverHeader);

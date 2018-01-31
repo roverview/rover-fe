@@ -12,6 +12,13 @@
     $('#about-us').hide();
     $('#login').show();
 
+    if(localStorage.id) {
+      $('#nav-login').hide();
+    } else {
+      $('#nav-favorites').hide();
+      $('#nav-logout').hide();
+    };
+
     $('#login-form button').on('click', function(e) {
       e.preventDefault();
 

@@ -13,6 +13,14 @@
     $('#explorer').hide();
     $('#about-us').hide();
     $('#results').show();
+
+    if(localStorage.id) {
+      $('#nav-login').hide();
+    } else {
+      $('#nav-favorites').hide();
+      $('#nav-logout').hide();
+    };
+
     next();
   };
 

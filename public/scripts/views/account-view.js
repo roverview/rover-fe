@@ -14,6 +14,13 @@
     $('#about-us').hide();
     $('#account').show();
 
+    if(localStorage.id) {
+      $('#nav-login').hide();
+    } else {
+      $('#nav-favorites').hide();
+      $('#nav-logout').hide();
+    };
+
     next();
   };
   module.accountView = accountView;
