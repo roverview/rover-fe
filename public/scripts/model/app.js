@@ -140,11 +140,12 @@
   /* ROVERVIEW API - IMAGES */
   // POST (create/save) favorite images
   roverData.addImage = (rover, date, camera, img_url) => {
-    console.log('Add image:', );
+    console.log('Add image:', img_url);
+
     $.ajax({
       url: `${roverViewApi}/db/image`,
       method: 'POST',
-      data: { 
+      data: {
         rover_name: rover,
         camera_name: camera,
         earth_date: date,
