@@ -121,11 +121,11 @@
   }
 
   // GET (read) user
-  roverData.getUser = (ctx, next) => {
-    console.log('Get user:', ctx)
+  roverData.getUser = username => {
+    console.log('Get user:', username)
 
     $.ajax({
-      url: `${roverViewApi}/db/users/${ctx.params.username}`, // need to check params...
+      url: `${roverViewApi}/db/users/${username}`, 
       method: 'GET',
       success: function(data) {
         console.log(data);
@@ -134,11 +134,9 @@
         // change pages to logged in results
         // add code here to loop through all photos linked to username...? Probably...?
       }
-        .catch(err => {
-          console.error(err);
-        })
+       
     })
-    next();
+    // next();
   }
 
   /* ROVERVIEW API - IMAGES */
