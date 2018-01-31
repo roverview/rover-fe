@@ -198,20 +198,13 @@
 
 
   // DELETE (delete) favorite images
-  roverData.deleteImage = (ctx, next) => {
-    console.log('Delete image:', ctx);
-    // need to make sure this only happens if the user is logged in
-
-    // use jQuery like so:
-    // $('#delete-book').on('click', function() {
-    // which would trigger the following ajax call:
+  roverData.deleteImage = (username, imgId) => {
+    console.log('Delete image - username:', username);
+    console.log('Delete image - image id:', imgId);
 
     $.ajax({
-      url: `${roverViewApi}/db/users/${ctx.params.username}/${ctx.params.imgId}`,
+      url: `${roverViewApi}/db/image/${username}/${imgId}`,
       method: 'DELETE',
-      data: {
-        // what do we do here lol
-      },
       success: console.log('Photo deleted from favorites')
       // change star to grey star or something?
     });
@@ -221,7 +214,6 @@
     localStorage.clear();
     $('#nav-login').show();
   });
-
 
   module.roverData = roverData;
 })(window)

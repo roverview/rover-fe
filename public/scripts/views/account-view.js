@@ -24,6 +24,13 @@
       window.roverData.getImage(userId)
     })
 
-  };
+    $('.photoDelete a').on('click', function() {
+      // console.log(get username here)
+      // console.log(get image id here)
+
+      window.roverData.deleteImage(/*username, img id*/)
+    });
+  }
+
   module.accountView = accountView;
 })(window);
