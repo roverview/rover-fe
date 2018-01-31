@@ -1,5 +1,5 @@
 #datepicker {
-    width: 10%;
+    width: 15%;
     text-align: center;
 }
 
@@ -67,4 +67,14 @@ h3 {
 
 #login-form p {
     margin-top: 2.5vw;
+}
+
+#camera {
+    text-align: center;
+    margin-left: 15%;
+}
+
+#available-cameras {
+    text-align: center;
+    margin-left: 15%;
 }
