@@ -141,17 +141,15 @@
   // POST (create/save) favorite images
   roverData.addImage = (rover, date, camera, img_url) => {
     console.log('Add image:', );
-    // need to make sure this only happens if the user is logged in
-    // receive user id 
     $.ajax({
       url: `${roverViewApi}/db/image`,
       method: 'POST',
-      data: { // need to figure out exact properties here...
-        rover_name: this.roverName,
-        camera_name: this.camera,
-        earth_date: this.earthDate,
-        img_src: this.imgSrc,
-        user_id: localStorage.user_id, // ?? this might not work.
+      data: { 
+        rover_name: rover,
+        camera_name: camera,
+        earth_date: date,
+        image_src: img_url,
+        user_id: localStorage.user_id,
       },
       success: console.log('Photo added to favorites!')
       // change star to colored in star or something?
