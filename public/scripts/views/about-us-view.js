@@ -16,7 +16,7 @@
     $('#about-us').show();
 
     next();
-  }
+  };
 
   module.aboutUsView = aboutUsView;
 })(window);
