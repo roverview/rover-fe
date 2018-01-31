@@ -185,9 +185,6 @@
     $.ajax({
       url: `${roverViewApi}/db/users/${ctx.params.username}/${ctx.params.imgId}`,
       method: 'DELETE',
-      data: {
-        // what do we do here lol
-      },
       success: console.log('Photo deleted from favorites')
       // change star to grey star or something?
     });
