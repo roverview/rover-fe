@@ -1,43 +1,45 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Rover</title>
-    <!--for the calendar widget-->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles/vendor/reset.css">
-    <link rel="stylesheet" href="styles/vendor/icons.css">
-    <link rel="stylesheet" href="styles/base/base.css">
-    <link rel="stylesheet" href="styles/layout/layout.css">
-    <link rel="stylesheet" href="styles/modules/modules.css">
 
-    <!--for the calendar widget-->
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <!-- <link rel="stylesheet" href="/resources/demos/style.css"> where is this? -->
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    
-    
-    <script id="explorer-template" type="text/x-handlebars-template">
+<head>
+  <title>Rover</title>
+  <!--for the calendar widget-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles/vendor/reset.css">
+  <link rel="stylesheet" href="styles/vendor/icons.css">
+  <link rel="stylesheet" href="styles/base/base.css">
+  <link rel="stylesheet" href="styles/layout/layout.css">
+  <link rel="stylesheet" href="styles/modules/modules.css">
+
+  <!--for the calendar widget-->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <!-- <link rel="stylesheet" href="/resources/demos/style.css"> where is this? -->
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+  <script id="explorer-template" type="text/x-handlebars-template">
       <!-- Handlebars template -->
     </script>
 
-    <script id="results-template" type="text/x-handlebars-template">
+  <script id="results-template" type="text/x-handlebars-template">
       <!-- Handlebars template -->
     </script>
 
-    <script id="account-template" type="text/x-handlebars-template">
+  <script id="account-template" type="text/x-handlebars-template">
       <!-- Handlebars template -->
     </script>
-    
 
-  </head>
-  <body>
-    <header>
-      <nav class="main-nav" onclick = "void(0)">
-        <div class="icon-menu"></div>
-        <ul>
-          <!-- need to enter real links for now
+
+</head>
+
+<body>
+  <header>
+    <nav class="main-nav" onclick="void(0)">
+      <div class="icon-menu"></div>
+      <ul>
+        <!-- need to enter real links for now
             NOTE for logic: If user is logged in, hide log in link. If user is not logged in, hide view favorites. -->
             <li><a href="/">Select a Rover</a></li>
             <li id="nav-favorites"><a href="#">View Favorites</a></li>
@@ -176,22 +178,23 @@
     <script src="scripts/controller/routes.js"></script>
   
     <script>
-      $( function() {
-        $('#datepicker').datepicker({ dateFormat: 'yy-mm-dd' }),
-        $( "#datepicker" ).datepicker({
-          showOn: "button",
-          buttonImage: "images/calendar.gif",
-          buttonImageOnly: true,
-          buttonText: "Select date",
-          minDate: "-1Y",
-          maxDate: 1,
-        })
-       });
+      $(function () {
+        $('#datepicker').datepicker({ 
+        dateFormat: 'mm/dd/yy',
+        minDate: "-1y", 
+        maxDate:0,
+        showOn: "button", 
+        buttonImage: "images/calendar.gif",
+        buttonImageOnly: true,
+        buttonText: "Select date",
+        showAnim: "clip", 
+        altFormat: 'yy-mm-dd',
+
+      });
+
+      });
   </script>
-  
-    
-  
-  
-  
-  </body>
+
+</body>
+
 </html>
