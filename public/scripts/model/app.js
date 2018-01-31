@@ -17,7 +17,7 @@
 
 
     $.ajax({
-      url: `${apiPhotoUrl}/${rover}/photos?earth_date=2018-01-29`,
+      url: `${apiPhotoUrl}/${rover}/photos?earth_date=${date}`,
       method: 'GET',
       dataType: 'JSON',
       data: {
@@ -67,7 +67,8 @@
 
         $('#earth-date').text(formattedDate);
         $('#camera-name').text(camera);
-        $('#results img').attr('src', photo);
+        $('#results-img').attr('src', photo);
+        $('#results').show();
       }
     });
   };
