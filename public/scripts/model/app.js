@@ -1,54 +1,53 @@
 'use strict';
 
 (function(module) {
-  let roverData = {}
+  let roverData = {};
 
-  // let roverViewApi = 'https://rover-be-staging.herokuapp.com'
-  let roverViewApi = 'http://localhost:4000'
+  // let roverViewApi = 'https://rover-be-staging.herokuapp.com';
+  let roverViewApi = 'http://localhost:4000';
   let apiPhotoUrl = 'https://api.nasa.gov/mars-photos/api/v1/rovers/';
   let apiManifestUrl = 'https://api.nasa.gov/mars-photos/api/v1/manifests/';
   let apiKey = 'F7GBoBZ1JBWwwehiwisVuPyIkX8yk8W6rmsDHazU';
 
   /* MARS PHOTO API */
-  // GET cameras for rovers, populate drop-down on page load
-  // We might need to filter the drop-down further based on date
-  roverData.fetchCameras = (ctx, next) => {
-    let rover = ctx.params.rover;
-    console.log('ctx:',ctx);
-    let roverName = rover.charAt(0).toUpperCase() + rover.slice(1);
-    console.log('rover name: ', roverName);
-    $('#explorer h2').text(roverName);
+  roverData.fetchCameras = (rover, date) => {
+
+    console.log(rover)
+    console.log(date)
+
+
     $.ajax({
-      url: `${apiPhotoUrl}/${rover}`,
+      url: `${apiPhotoUrl}/${rover}/photos?earth_date=${date}`,
       method: 'GET',
       dataType: 'JSON',
       data: {
         'api_key': apiKey,
       },
       success: function(data) {
-        console.log('available cameras:',data.rover.cameras);
+        console.log('available photos',data.photos);
+        console.log('available cameras',data.photos[0].camera);
         let cameras = [];
 
-        for(var i = 0; i < data.rover.cameras.length; i++) {
-          let cameraName = data.rover.cameras[i].name;
-          let fullName = data.rover.cameras[i].full_name;
+        for(var i = 0; i < data.photos.length; i++) {
+          let cameraName = data.photos[i].camera.name;
+          let fullName = data.photos[i].camera.full_name;
           let htmlOption = `<option value="${cameraName}">${fullName}</option>`;
 
           if (cameras.indexOf(fullName) === -1) {
             cameras.push(fullName);
-            $('#available-cameras').append(`"${htmlOption}"`);
-          }
-        }
+
+            $('#available-cameras').append(`${htmlOption}`);
+          };
+        };
       }
-    })
-    // next();
-  }
+    });
+  };
 
   // GET & render photo from Mars Photo API
-  roverData.fetchPhoto = (ctx, next) => {
-    let rover = 'curiosity';
-    let date = '2018-1-28';
-    let camera = 'fhaz';
+  roverData.fetchPhoto = (rover, date, camera) => {
+    console.log('rover:',rover);
+    console.log('date:',date);
+    console.log('camera:',camera);
 
     $.ajax({
       url: `${apiPhotoUrl}${rover}/photos?earth_date=${date}&camera=${camera}`,
@@ -58,7 +57,7 @@
         'api_key': apiKey,
       },
       success: function(data) {
-        console.log('photo data:',data)
+        console.log('photo data:',data);
 
         let photo = data.photos[0].img_src;
         let camera = data.photos[0].camera.full_name;
@@ -68,22 +67,23 @@
 
         $('#earth-date').text(formattedDate);
         $('#camera-name').text(camera);
-        $('#results img').attr('src', photo);
+        $('#results-img').attr('src', photo);
+        $('#results').show();
       }
-    })
-    next();
-  }
+    });
+  };
+
 
   // Change date format from 2018-01-28 to 01-28-2018
   roverData.renderDate = date => {
-    let newDate = date.split('-')
+    let newDate = date.split('-');
 
     newDate.push(newDate[0]);
     newDate.shift();
     newDate.join('-');
 
     return newDate.join('-');
-  }
+  };
 
   // GET mission manifest for each rover from Mars Rover API
   roverData.fetchManifest = (ctx, next) => {
@@ -97,12 +97,11 @@
         'api_key': apiKey
       },
       success: function(data) {
-        console.log('mission manifest',data)
+        console.log('mission manifest',data);
       }
-    })
+    });
+  };
 
-    next();
-  }
 
   /* ROVERVIEW API - USERS */
   // POST (create) user
@@ -117,12 +116,12 @@
       success: function(data) {
         console.log(data);
       }
-    })
-  }
+    });
+  };
 
   // GET (read) user
   roverData.getUser = username => {
-    console.log('Get user:', username)
+    console.log('Get user:', username);
 
     $.ajax({
       url: `${roverViewApi}/db/users/${username}`, 
@@ -134,15 +133,14 @@
         // change pages to logged in results
         // add code here to loop through all photos linked to username...? Probably...?
       }
-       
-    })
-    // next();
-  }
+    });
+  };
+
 
   /* ROVERVIEW API - IMAGES */
   // POST (create/save) favorite images
   roverData.addImage = (ctx, next) => {
-    console.log('Add image:', ctx)
+    console.log('Add image:', ctx);
     // need to make sure this only happens if the user is logged in
     // receive user id 
     $.ajax({
@@ -157,16 +155,12 @@
       },
       success: console.log('Photo added to favorites!')
       // change star to colored in star or something?
-    })
-      .catch(err => {
-        console.error(err);
-      })
-    next();
-  }
+    });
+  };
 
   // GET (read) favorite images
   roverData.getImage = (ctx, next) => {
-    console.log('Get user id:', ctx)
+    console.log('Get user id:', ctx);
     let user_id = localStorage.user_id;
 
     $.ajax({
@@ -179,16 +173,13 @@
         console.log(data);
         // add code here to loop through all photos linked to username...? Probably...? Also all photos should have Id attached to use for delete image function
       }
-        .catch(err => {
-          console.error(err);
-        })
-    })
-    next();
-  }
+    });
+  };
+
 
   // DELETE (delete) favorite images
   roverData.deleteImage = (ctx, next) => {
-    console.log('Delete image:', ctx)
+    console.log('Delete image:', ctx);
     // need to make sure this only happens if the user is logged in
 
     // use jQuery like so:
@@ -203,12 +194,9 @@
       },
       success: console.log('Photo deleted from favorites')
       // change star to grey star or something?
-    })
-      .catch(err => {
-        console.error(err);
-      })
-    next();
-  }
+    });
+  };
+
 
   module.roverData = roverData;
 })(window)
