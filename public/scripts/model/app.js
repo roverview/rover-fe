@@ -181,9 +181,11 @@
             <p><strong>Earth Date:</strong> ${item.earth_date}</p>
             <p><strong>Camera:</strong> ${item.camera_name}</p>
             <img src="${item.image_src}">
+
             <a href="#"><p class="photoDelete">&#x274C Delete photo from favorites?</p></a>
             <input class="hiddenUserId" type="hidden" id="${item.id}">
             <input class="hiddenImageId" type="hidden" id="${item.image_id}">
+
             </form>
           `;
           $('.favorites-container').append(content);
