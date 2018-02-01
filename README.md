@@ -1,7 +1,7 @@
 # RoverView
 #### Code Fellows 301 Final Project
 
-**Authors**: 
+## Authors  
 Jay Adams           j.adams011@hotmail.com  
 Melanie Cohen       melaniebcohen@gmail.com  
 Bessie Arino        brarino@gmail.com  
