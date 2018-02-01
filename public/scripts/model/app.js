@@ -143,7 +143,6 @@
     });
   };
 
-
   /* ROVERVIEW API - IMAGES */
   // POST (create/save) favorite images
   roverData.addImage = (rover, date, camera, img_url) => {
@@ -159,8 +158,9 @@
         image_src: img_url,
         user_id: localStorage.user_id,
       },
-      success: console.log('Photo added to favorites!')
-      // change star to colored in star or something?
+      success: function() {
+        console.log('Photo added to favorites!')
+      }
     });
   };
 

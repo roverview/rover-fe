@@ -73,3 +73,6 @@ h3 {
     margin-top: 2.5vw;
 }
 
+.logged-in-saved span {
+    color: #FF0000;
+}

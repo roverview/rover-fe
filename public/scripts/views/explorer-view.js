@@ -10,6 +10,7 @@
     $('#landing').hide();
     $('#results').hide();
     $('#about-us').hide();
+    $('.logged-in-saved').hide();
     $('#explorer').show();
 
     if(localStorage.user_id) {
@@ -37,6 +38,8 @@
 
     $('.camera button').on('click', function(e) {
       e.preventDefault();
+      $('.logged-in').show();
+      $('.logged-in-saved').hide();
 
       let roverName = ctx.params.rover;
       let pickedDate = $('#alt_date').val();
@@ -61,6 +64,8 @@
       console.log('imageUrl', imageUrl);
 
       window.roverData.addImage(roverName, earthDate, cameraName, imageUrl);
+      $('.logged-in').hide();
+      $('.logged-in-saved').show();
     })
   }
 

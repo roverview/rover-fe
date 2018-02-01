@@ -5,13 +5,11 @@
   <title>Rover</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
   <link rel="stylesheet" href="styles/vendor/reset.css">
   <link rel="stylesheet" href="styles/vendor/icons.css">
   <link rel="stylesheet" href="styles/base/base.css">
   <link rel="stylesheet" href="styles/layout/layout.css">
   <link rel="stylesheet" href="styles/modules/modules.css">
-  <!--for the datepicker widget-->
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -22,7 +20,6 @@
     <nav class="main-nav" onclick="void(0)">
       <div class="icon-menu"></div>
       <ul>
-        <!-- NOTE for logic: If user is logged in, hide log in link. If user is not logged in, hide view favorites. -->
         <li>
           <a href="/">Select a Rover</a>
         </li>
@@ -112,7 +109,11 @@
         <img id="results-img">
 
         <p class="logged-in">
-          <a href="#">favorite? link/button &#9829</a>
+          <a id="favorite-icon" href="#">&#9829 Save image to favorites</a>
+        </p>
+
+        <p class="logged-in-saved">
+          <a id="favorite-icon" href="/account"><span>&#9829</span> Image saved to favorites</a>
         </p>
 
         <p class="not-logged-in">
@@ -156,14 +157,13 @@
       <div class="box">
         <h3>Melanie Cohen</h3>
         <img src="images/about/melanie.jpg">
-        <p> Melanie is a Program Manager-turned-Dev and happens to be an indecisive hiker. Tired of trying to find hikes on the
-          WTA site only to discover they were too far away or too long for a day trip, she thought a “Find A Hike” app could
-          help her and other PNW hikers discover new adventures that fit their energy and skill levels. Aspires to be Dr.
-          Bruce Bannor becuase "Mr. McGee, Don't make me angry. You wouldn't like me when I'm angry." </p>
+        <p> Melanie is a Program Manager-turned-Dev with a passion for innovative technology. Having grown up on a healthy diet of sci-fi books and entertainment, she's excited to be able to use her newly acquired skills to glimpse a bit more of our solar system. "There's a frood who really knows where [her] towel is!"</p>
           <p>email: melaniebcohen@gmail.com</p>
           <p>github: melaniebcohen </p>
           <p>LinkedIn: </p>
       </div>
+
+
 
       <div class="box">
         <h3>Joshua Fredrickson</h3>
