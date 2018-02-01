@@ -186,6 +186,7 @@
             </form>
           `;
           $('.favorites-container').append(content);
+          $('#no-favorites').empty();
         });
 
       }
