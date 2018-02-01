@@ -22,8 +22,12 @@
 
     let rover = ctx.params.rover;
     let roverHeader = rover.charAt(0).toUpperCase() + rover.slice(1);
-    console.log('rover name: ', roverHeader);
     $('#explorer h2').text(roverHeader);
+
+    $('main').ready(function() {
+      $('section#manifest').show();
+      window.roverData.fetchManifest(rover)
+    })
 
     $('#datepicker').on('change', function(e) {
       e.preventDefault();

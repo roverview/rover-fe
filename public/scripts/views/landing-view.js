@@ -14,6 +14,7 @@
     $('#results').hide();
     $('#about-us').hide();
     $('#results').hide();
+    $('#manifest').hide()
     $('#landing').show();
 
     if(localStorage.user_id) {
@@ -22,8 +23,6 @@
       $('#nav-favorites').hide();
       $('#nav-logout').hide();
     };
-
-    next();
   };
 
   module.landingView = landingView;

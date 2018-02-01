@@ -13,6 +13,7 @@
     $('#explorer').hide();
     $('#results').hide();
     $('#about-us').hide();
+    $('#manifest').hide()
 
     if(localStorage.user_id) {
       $('#nav-login').hide();

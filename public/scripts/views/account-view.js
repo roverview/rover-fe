@@ -10,6 +10,7 @@
     $('#explorer').hide();
     $('#results').hide();
     $('#about-us').hide();
+    $('#manifest').hide()
     $('#account').show();
     $('.favorites-container').empty();
 

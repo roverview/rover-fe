@@ -62,3 +62,10 @@ button {
 #camera {
     text-align: center;
 }
+
+#manifest {
+    background-color: #999999;
+    color: #000000;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}

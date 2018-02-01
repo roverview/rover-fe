@@ -4,14 +4,13 @@
   var resultsView = {};
 
   resultsView.init = (ctx, next) => {
-    // init code goes here (with params?)
-
     $('#login').hide();
     $('#create-account').hide();
     $('#account').hide();
     $('#landing').hide();
     $('#explorer').hide();
     $('#about-us').hide();
+    $('#manifest').show()
     $('#results').show();
 
     if(localStorage.user_id) {
@@ -20,8 +19,6 @@
       $('#nav-favorites').hide();
       $('#nav-logout').hide();
     };
-
-    next();
   };
 
   module.resultsView = resultsView;

@@ -12,6 +12,7 @@
     $('#landing').hide();
     $('#explorer').hide();
     $('#results').hide();
+    $('#manifest').hide()
 
     $('#about-us').show();
 
@@ -21,8 +22,6 @@
       $('#nav-favorites').hide();
       $('#nav-logout').hide();
     };
-
-    next();
   };
 
   module.aboutUsView = aboutUsView;
