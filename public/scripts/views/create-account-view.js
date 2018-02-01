@@ -4,17 +4,36 @@
   var createAccountView = {};
 
   createAccountView.init = (ctx, next) => {
-    // init code goes here
+    console.log('hello create account view');
 
     $('#login').hide();
+    $('#create-account').show();
     $('#account').hide();
     $('#landing').hide();
     $('#explorer').hide();
     $('#results').hide();
-    $('#about-us').show();
+    $('#about-us').hide();
 
-    next();
-  }
+    if(localStorage.user_id) {
+      $('#nav-login').hide();
+    } else {
+      $('#nav-favorites').hide();
+      $('#nav-logout').hide();
+    };
+
+    $('#create-account button').on('click', function(e) {
+
+      let User = {
+        username: $('#create-name').val(),
+      };
+
+      console.log('user obj:',User);
+      console.log('user.username:',User.username);
+
+      window.roverData.addUser(User.username);
+
+    });
+  };
 
   module.createAccountView = createAccountView;
 })(window);

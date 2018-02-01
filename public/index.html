@@ -1,165 +1,218 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Rover</title>
-    <!--for the calendar widget-->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles/vendor/reset.css">
-    <link rel="stylesheet" href="styles/vendor/icons.css">
-    <link rel="stylesheet" href="styles/base/base.css">
-    <link rel="stylesheet" href="styles/layout/layout.css">
-    <link rel="stylesheet" href="styles/modules/modules.css">
 
-    <!--for the calendar widget-->
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    
-    
-    <script id="explorer-template" type="text/x-handlebars-template">
-      <!-- Handlebars template -->
-    </script>
+<head>
+  <title>Rover</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+  <link rel="stylesheet" href="styles/vendor/reset.css">
+  <link rel="stylesheet" href="styles/vendor/icons.css">
+  <link rel="stylesheet" href="styles/base/base.css">
+  <link rel="stylesheet" href="styles/layout/layout.css">
+  <link rel="stylesheet" href="styles/modules/modules.css">
+  <!--for the datepicker widget-->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+<body>
 
-    <script id="results-template" type="text/x-handlebars-template">
-      <!-- Handlebars template -->
-    </script>
+  <header>
+    <nav class="main-nav" onclick="void(0)">
+      <div class="icon-menu"></div>
+      <ul>
+        <!-- NOTE for logic: If user is logged in, hide log in link. If user is not logged in, hide view favorites. -->
+        <li>
+          <a href="/">Select a Rover</a>
+        </li>
+        <li id="nav-favorites">
+          <a href="/account">View Favorites</a>
+        </li>
+        <li id="nav-login">
+          <a href="/login">Log In</a>
+        </li>
+        <li>
+          <a href="/aboutus">About Us</a>
+        </li>
+        <li id="nav-logout">
+          <a href="/logout">Logout</a>
+        </li>
+      </ul>
+    </nav>
+    <img src="images/mars2020-mast-rover-head-br2.jpg">
+    <h1>RoverView</h1>
+  </header>
 
-    <script id="account-template" type="text/x-handlebars-template">
-      <!-- Handlebars template -->
-    </script>
-    
+  <main>
+    <section id="login">
+      <h2>Login</h2>
+      <form id="login-form" action="/">
+        <input type="text" id="login-name" placeholder="username" required>
+        <button type="submit">Login</button>
+        <p><a href="/createaccount">Don't have a username? Click here to create your account.</a></p>
+      </form>
+    </section>
 
-  </head>
-  <body>
-    <header>
-      <img src="images/mars2020-mast-rover-head-br2.jpg">
-      <h1>RoverView</h1>
-      <nav class="main-nav">
-        <div class="icon-menu"></div>
-        <ul>
-          <!-- need to enter real links for now
-          NOTE for logic: If user is logged in, hide log in link. If user is not logged in, hide view favorites. -->
-          <li><a href="/">Select a Rover</a></li>
-          <li><a href="#">View Favorites</a></li>
-          <li><a href="/login">Log In</a></li>
-          <li><a href="/aboutus">About Us</a></li>
-        </ul>
-      </nav>
-    </header>
-    <main>      
+    <section id="create-account">
+      <h2>Create Username</h2>
+      <form id="create-form" action="/login">
+        <input type="text" id="create-name" placeholder="create username" required>
+        <button type="submit">Create</button>
+      </form>
+    </section>
 
-<!-- ADDED HANDLEBAR SCAFFOLDING IN THE SECTION -->
+    <section id="account">
+      <h2>Favorites</h2>
+      <div class="favorites-container"></div>
+    </section>
 
-      <section id="login">
-        <h2>Login</h2>
-        <form id="login-form">
-          <input type="text" id="login-name" placeholder="username" required>
-          <input type="text" id="login-passphrase" placeholder="passphrase" required>
-          <button type="submit">Login</button>
-        </form>
-      </section>
+    <section id="landing">
+      <h2>Pick a Rover</h2>
+      <div class="box">
+        <a href="/explorer/curiosity">
+          <h3>Curiosity</h3>
+          <img src="images/curiosity.jpg">
+        </a>
+        <a href="/explorer/opportunity">
+          <h3>Opportunity</h3>
+          <img src="images/rover2_400 (1).jpg">
+        </a>
+      </div>
+    </section>
 
-      <section id="create-account">
-          <h2>Create Username</h2>
-          <form id="create-form">
-            <input type="text" id="create-name" placeholder="create username" required>
-            <input type="text" id="create-passphrase" placeholder="create passphrase" required>
-            <button type="submit">Create</button>
-          </form>
-      </section>
-      
-      <section id="account">
-        <h2>Account View</h2>
-        <p>Username: {{username}}</p>
-        <p>favorites: </p>
-        <ul id="favorites-list"></ul>
-      </section>
+    <section id="explorer">
+      <h2>Name of Rover</h2>
 
-      <section id="landing">
-        <!-- add rover selection here -->
-        <a href="/explorer/curiosity"><img src="http://via.placeholder.com/150x150"></a>
-        <a href="/explorer/opportunity"><img src="http://via.placeholder.com/150x150"></a>
-        <a href="/explorer/spirit"><img src="http://via.placeholder.com/150x150"></a>
-      </section>
+      <form class="camera">
+        <p>Pick A Date to view:</p>
+        <p>
+          <input type="text" id="datepicker" alt="#alt_date">
+          <input type="hidden" id="alt_date">
+        </p>
 
-      <section id="explorer">
-        <h2>Name of Rover</h2>
-        <!--for the calendar widget-->                 
-        <!-- size is for the animation-->
-        <p>Pick A Date to view: <input type="text" id="datepicker" size="30"></p>
         <p>Select a camera:</p>
-          <form>
-            <select name="cameras" id="available-cameras">
-              <option value="" disabled selected>Select a Camera</option>
-            </select>
-          </form>
-          
-        <form class="camera">
-          <p><input type="radio" name="camera" value="camera1"> Camera 1</p>
-          <p><input type="radio" name="camera" value="camera2"> Camera 2</p>
-          <p><input type="radio" name="camera" value="camera3"> Camera 3</p>
-          <button type="submit">Submit</button>
-        </form>
-      </section>
+        <select name="cameras" id="available-cameras">
+          <option value="" disabled selected>Select a Camera</option>
+        </select>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
 
-      <section id="results">
-
-        <p>Earth Date: <span id="earth-date"></span></p>
-        <p>Camera: <span id="camera-name"></span></p>
+    <section id="results">
+      <div class="box">
+        <p>
+          <strong>Earth Date:</strong>
+          <span id="earth-date"></span>
+        </p>
+        <p>
+          <strong>Camera:</strong>
+          <span id="camera-name"></span>
+        </p>
         <img id="results-img">
 
-        <div class="favorite-logged-in">
-          <a href="#">favorite? link/button</a>            
-        </div>
+        <p class="logged-in">
+          <a href="#">favorite? link/button &#9829</a>
+        </p>
 
-        <div class="not-logged-in">
-          <p>Please login in to save favorites</p>
-        </div>
+        <p class="not-logged-in">
+          <a href="/login">Please login in to save favorites. &#9829</a>
+        </p>
+      </div>
+    </section>
 
-      </section>
+    <section id="about-us">
+      <h2>About Us</h2>
 
-      <section id="about-us">
-        <h2>About Us</h2>
-        <p> ABOUT US Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa fugit aperiam ad voluptatibus exercitationem ex voluptates quod minus facere tenetur dolorum saepe, quibusdam veniam voluptatum recusandae odit quas. Sapiente, esse.</p>
-      </section>
-      
-    </main>
+      <div class="box">
+        <h3>Senior Instructor: Brian Nations</h3>
+        <p>Channels Zaphod Beeblebrox, because, "I'm so hip you need a step ladder to see over my pelvis".</p>
+        <img src="images/about/brian.jpg">
+      </div>
 
-    <footer></footer>
+      <div class="box">
+        <h3>Jay Adams</h3>
+        <img src="images/about/jay.jpg">
+        <p> Likes a good cup of coffee. His motto is decelerate into the curves and accelerate out of 'em.! Aspires to be Doc
+          Brown, becuase,"Roads?!? Where we're going, we don't need roads." 
+          <p>email: j.adams011@hotmail.com</p> 
+          <p>github:  jayadams011</p>
+          <p>LinkedIn: jay-adams-3259a7155</p>
+      </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <div class="box">
+        <h3>Bessie Arino</h3>
+        <img src="images/about/bessie.jpg">
+        <p> I was previously working in Customer Service and am now my father's care giver. I was introduced to Code Fellows
+          from a friend that was also interested in attending. I'm at Code Fellows to become a Full-stack JavaScript Developer.
+          Eventually I would like to become a web developer in the cannabis industry. Aspires to be Dr Buckaroo Banzai, becuase
+          "Hey, hey, hey, hey-now. Don’t be mean; we don’t have to be mean, cuz, remember, no matter where you go, there
+          you are. " </p> 
+          <p>email: brarino@gmail.com</p> 
+          <p>github: bishang</p>
+          <p>LinkedIn: </p>
+      </div>
 
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <div class="box">
+        <h3>Melanie Cohen</h3>
+        <img src="images/about/melanie.jpg">
+        <p> Melanie is a Program Manager-turned-Dev and happens to be an indecisive hiker. Tired of trying to find hikes on the
+          WTA site only to discover they were too far away or too long for a day trip, she thought a “Find A Hike” app could
+          help her and other PNW hikers discover new adventures that fit their energy and skill levels. Aspires to be Dr.
+          Bruce Bannor becuase "Mr. McGee, Don't make me angry. You wouldn't like me when I'm angry." </p>
+          <p>email: melaniebcohen@gmail.com</p>
+          <p>github: melaniebcohen </p>
+          <p>LinkedIn: </p>
+      </div>
 
-    <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
-    <script src="scripts/model/app.js"></script>
-    <script src="scripts/views/about-us-view.js"></script>
-    <script src="scripts/views/account-view.js"></script>
-    <script src="scripts/views/create-account-view.js"></script>
-    <script src="scripts/views/explorer-view.js"></script>
-    <script src="scripts/views/landing-view.js"></script>
-    <script src="scripts/views/login-view.js"></script>
-    <script src="scripts/views/results-view.js"></script>
-    <script src="scripts/controller/routes.js"></script>
-  
-    <script>
-      $( function() {
-        $( "#datepicker" ).datepicker({
-          showOn: "button",
-          buttonImage: "images/calendar.gif",
-          buttonImageOnly: true,
-          buttonText: "Select date",
-          minDate: "-1Y",
-          maxDate: 1,
-        })
+      <div class="box">
+        <h3>Joshua Fredrickson</h3>
+        <img src="images/about/joshua.jpg">
+        <p> Hey, I'm Joshua Fredrickson aka the old guy in the group. I am a customer focused individual who is always improving
+          , passionate about innovation,and an inventory professional. My focus is on being a full stack JavaScript Developer.
+          Aspires to be Dr.Pamela Lillian Isley, becuase, "You seem to have me confused with some warm-blooded damsel in
+          distress.  
+          <p>email: uafredrickson@gmail.com</p>
+          <p>github: Joshua-Fredrickson</p>
+          <p>LinkedIn: </p>
+      </div>
+    </section>
+    
+  </main>
+
+  <footer></footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+  <script src="scripts/model/app.js"></script>
+  <script src="scripts/views/about-us-view.js"></script>
+  <script src="scripts/views/account-view.js"></script>
+  <script src="scripts/views/create-account-view.js"></script>
+  <script src="scripts/views/explorer-view.js"></script>
+  <script src="scripts/views/landing-view.js"></script>
+  <script src="scripts/views/login-view.js"></script>
+  <script src="scripts/views/results-view.js"></script>
+  <script src="scripts/controller/routes.js"></script>
+
+  <!-- for datepicker - formats date, adds icon button, sets max date as today, sets min date to 1year ago, set clip animation then sets altFormat for date to work with api. -->
+  <script>
+    $(function () {
+      $('#datepicker').datepicker({ 
+      dateFormat: 'mm/dd/yy',
+      minDate: "-1y", 
+      maxDate:0,
+      showOn: "both", 
+      buttonImage: "images/calendar.gif",
+      buttonImageOnly: true,
+      buttonText: "Select date",
+      showAnim: "clip", 
+      altFormat: 'yy-mm-dd',
+      altField: '#alt_date',
       });
-    </script>
-  
-  
-  
-  </body>
+    });
+  </script>
+</body>
 </html>
