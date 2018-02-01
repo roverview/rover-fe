@@ -3,8 +3,8 @@
 (function(module) {
   let roverData = {};
 
-  let roverViewApi = 'https://rover-be-staging.herokuapp.com';
-  // let roverViewApi = 'http://localhost:4000';
+  // let roverViewApi = 'https://rover-be-staging.herokuapp.com';
+  let roverViewApi = 'http://localhost:4000';
   let apiPhotoUrl = 'https://api.nasa.gov/mars-photos/api/v1/rovers/';
   let apiManifestUrl = 'https://api.nasa.gov/mars-photos/api/v1/manifests/';
   let apiKey = 'F7GBoBZ1JBWwwehiwisVuPyIkX8yk8W6rmsDHazU';

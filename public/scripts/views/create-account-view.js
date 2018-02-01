@@ -33,7 +33,7 @@
       console.log('user.username:',User.username);
 
       window.roverData.addUser(User.username);
-
+      window.loginView.init();
     });
   };
 
