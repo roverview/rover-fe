@@ -31,6 +31,9 @@
 
       window.roverData.getUser(User.username);
       window.landingView.init();
+      $('#nav-login').hide();
+      $('#nav-favorites').show();
+      $('#nav-logout').show();
     });
   };
 
