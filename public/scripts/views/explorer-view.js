@@ -53,7 +53,7 @@
 
       let roverName = ctx.params.rover;
       let earthDate = $('#alt_date').val();
-      let cameraName = $('#available-cameras option:checked').val();
+      let cameraName = $('#available-cameras option:checked').text();
       let imageUrl = $('#results-img').attr('src');
       console.log('roverName', roverName);
       console.log('earthDate', earthDate);
