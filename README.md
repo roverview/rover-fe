@@ -1,5 +1,5 @@
 # RoverView
-## Code Fellows 301 Final Project
+#### Code Fellows 301 Final Project
 
 **Authors**: 
 Jay Adams           j.adams011@hotmail.com
@@ -20,6 +20,7 @@ This is a full CRUD app with front end, back end and data base being hosted on H
 * [Mars Rover Photo API](https://api.nasa.gov/api.html#MarsPhotos)
 
 ## Credits and Collaborations
+* Code Fellows
 * Photos courtesy of NASA/JPL-Caltech
 
 ## License
