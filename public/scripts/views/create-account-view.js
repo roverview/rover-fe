@@ -23,6 +23,7 @@
     };
 
     $('#create-account button').on('click', function(e) {
+      e.preventDefault();
 
       let User = {
         username: $('#create-name').val(),
