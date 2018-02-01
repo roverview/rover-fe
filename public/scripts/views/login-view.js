@@ -10,6 +10,7 @@
     $('#explorer').hide();
     $('#results').hide();
     $('#about-us').hide();
+    $('#manifest').hide()
     $('#login').show();
 
     if(localStorage.user_id) {
@@ -29,7 +30,6 @@
       console.log('user login.username:',User.username)
 
       window.roverData.getUser(User.username);
-
     });
   };
 

@@ -101,9 +101,7 @@
   };
 
   // GET mission manifest for each rover from Mars Rover API
-  roverData.fetchManifest = (ctx, next) => {
-    let rover = 'curiosity';
-
+  roverData.fetchManifest = rover => {
     $.ajax({
       url: `${apiManifestUrl}${rover}`,
       method: 'GET',
@@ -112,7 +110,22 @@
         'api_key': apiKey
       },
       success: function(data) {
-        console.log('mission manifest',data);
+        // Reference: https://stackoverflow.com/questions/2254185/regular-expression-for-formatting-numbers-in-javascript
+        Number.prototype.format = function () {
+          return this.toString().split( /(?=(?:\d{3})+(?:\.|$))/g ).join(",")
+        }
+        let sol = data.photo_manifest.max_sol;
+        let status = data.photo_manifest.status;
+      
+        $('#manifest h4 span').text(data.photo_manifest.name)
+        $('#launch-date').text(roverData.renderDate(data.photo_manifest.launch_date))
+        $('#launch-date').text(roverData.renderDate(data.photo_manifest.launch_date))
+        $('#landing-date').text(roverData.renderDate(data.photo_manifest.landing_date))
+        $('#sol').text(sol.format())
+        $('#max-date').text(roverData.renderDate(data.photo_manifest.max_date))
+        $('#status').text(status.charAt(0).toUpperCase() + status.slice(1))
+        $('#manifest').show()
+
       }
     });
   };
