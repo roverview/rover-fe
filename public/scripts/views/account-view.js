@@ -11,6 +11,7 @@
     $('#results').hide();
     $('#about-us').hide();
     $('#account').show();
+    $('.favorites-container').empty();
 
     if(localStorage.user_id) {
       $('#nav-login').hide();

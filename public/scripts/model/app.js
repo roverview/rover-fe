@@ -28,6 +28,7 @@
         console.log('available cameras',data.photos[0].camera);
         let cameras = [];
 
+        $('#available-cameras').empty();
         for(var i = 0; i < data.photos.length; i++) {
           let cameraName = data.photos[i].camera.name;
           let fullName = data.photos[i].camera.full_name;
