@@ -172,9 +172,7 @@
       method: 'GET',
       dataType:'json',
       success: function(data) {
-        console.log('psql data:',data);
-        // add code here to loop through all photos linked to username...? Probably...? Also all photos should have Id attached to use for delete image function
-      
+        console.log('psql data:',data)
 
         data.rows.forEach(function(item) {
           let content = `
@@ -183,14 +181,15 @@
             <p><strong>Earth Date:</strong> ${item.earth_date}</p>
             <p><strong>Camera:</strong> ${item.camera_name}</p>
             <img src="${item.image_src}">
-            <p class="photoDelete"> &#x274C Delete photo from favorites?</p>
-            <input type="hidden" id="${item.id}">
-            <input type="hidden" id="${item.image_id}">
+
+            <a href="#"><p class="photoDelete">&#x274C Delete photo from favorites?</p></a>
+            <input class="hiddenUserId" type="hidden" id="${item.id}">
+            <input class="hiddenImageId" type="hidden" id="${item.image_id}">
+
             </form>
           `;
           $('.favorites-container').append(content);
         });
-
 
       }
     });
