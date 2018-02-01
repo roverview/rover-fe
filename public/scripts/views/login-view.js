@@ -30,6 +30,7 @@
       console.log('user login.username:',User.username)
 
       window.roverData.getUser(User.username);
+      window.landingView.init();
     });
   };
 
