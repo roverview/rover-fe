@@ -5,14 +5,16 @@ header {
 header img {
     width: 100%;
 }
-
 header h1 {
+    font-family: 'Orbitron';
+    font-weight: bold;
     background-color: #444444;
     color: #FFFFFF;
-    padding: 10px;
     text-align: center;
     margin-top: -3px;
-    font-size: 7vw;
+    font-size: 8.5vw;
+    padding-top: 7%;
+    padding-bottom: 5%;
 }
 
 main {
