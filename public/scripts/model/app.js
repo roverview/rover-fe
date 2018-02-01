@@ -183,7 +183,7 @@
             <p><strong>Earth Date:</strong> ${item.earth_date}</p>
             <p><strong>Camera:</strong> ${item.camera_name}</p>
             <img src="${item.image_src}">
-            <p class="photoDelete">&#x274C Delete photo from favorites?</p>
+            <p class="photoDelete"> &#x274C Delete photo from favorites?</p>
             <input type="hidden" id="${item.id}">
             <input type="hidden" id="${item.image_id}">
             </form>
