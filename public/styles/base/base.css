@@ -1,6 +1,6 @@
 body {
     font-family: Avenir, Verdana, sans-serif;
-    font-size: 3vw;
+    font-size: 4vw;
     background-color: #000000;
     color: #FFFFFF;
 }
@@ -11,5 +11,17 @@ strong {
 
 p {
     margin: 2vw;
-    line-height: 3.5vw;
+    line-height: 4.5vw;
+}
+
+h2 {
+    font-size: 7vw;
+    text-align: center;
+    margin-top: 3vw;
+    padding: 1vw;
+}
+
+h3 {
+    font-size: 5vw;
+    padding: 1.5vw;
 }

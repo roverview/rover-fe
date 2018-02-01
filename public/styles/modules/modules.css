@@ -1,14 +1,18 @@
 #datepicker {
-    width: 25%;
+    width: 40%;
     text-align: center;
+}
+
+select {
+    width: 40%;
 }
 
 .icon-menu {
     font-size: 3em;
     text-align: right;
     position: absolute;
-    top: 0px;
-    right: 3px;
+    top: 5px;
+    right: 5px;
 }
 
 .main-nav {
@@ -47,21 +51,6 @@
 a:link, a:hover, a:visited {
     color: #FFFFFF;
     text-decoration: none;
-}
-
-#landing img {
-    width: 65%;
-    margin: 1%;
-}
-
-#about-us img {
-    width: 65%;
-    border-radius: 50%;
-    margin: 5%;
-}
-
-h3 {
-    font-size: 4vw;
 }
 
 #login, #create-account, #account, #explorer, #results, #about-us {

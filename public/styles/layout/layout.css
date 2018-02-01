@@ -3,7 +3,7 @@ header {
 }
 
 header img {
-    max-width: 100%;
+    width: 100%;
 }
 
 header h1 {
@@ -15,10 +15,8 @@ header h1 {
     font-size: 7vw;
 }
 
-h2 {
-    font-size: 5vw;
-    text-align: center;
-    margin-top: 2vw;
+main {
+    min-height: 700px;
 }
 
 input[type="text"] {
@@ -30,11 +28,15 @@ input[type="text"] {
 footer {
     background-color: #444444;
     height: 40px;
+    padding: 5px;
+    text-align: center;
+    font-size: 3vw;
 }
 
 form, .box {
     background-color: #444444;
     margin: 3vw;
+    margin-bottom: 4vw;
     padding: 3vw;
     text-align: center;
     border-color: #888888;
@@ -45,18 +47,46 @@ form, .box {
 
 button {
     margin-top: 3vw;
-    border-radius: 1vw;
+    border-radius: 3px;
+    background-color: #acacac;
+    font-weight: bold;
 }
 
 #results-img {
-    width: 100%;
+    width: 90%;
     margin-bottom: 2%;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #acacac;
 }
 
 .favorites-container img {
-    width: 100%;
+    width: 90%;
     margin-top: 3vw;
     margin-bottom: 3vw;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #acacac;
+}
+
+#landing img {
+    width: 65%;
+    margin-bottom: 3vw;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #acacac;
+}
+
+#about-us img {
+    width: 65%;
+    border-radius: 50%;
+    margin: 5%;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #acacac;
 }
 
 #camera {
