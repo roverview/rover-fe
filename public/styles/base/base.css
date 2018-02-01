@@ -8,3 +8,7 @@ body {
 strong {
     font-weight: bold;
 }
+
+p {
+    margin: 2vw;
+}
