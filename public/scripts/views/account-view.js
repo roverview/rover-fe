@@ -24,12 +24,17 @@
       window.roverData.getImage(userId)
     })
 
-    $('.photoDelete a').on('click', function() {
-      // console.log(get username here)
-      // console.log(get image id here)
+    $('.favorites-container').on('click', 'a', function() {
+      console.log(this)
+      let username = $('.hiddenUserId').attr('id')
+      let imgId = $('.hiddenImageId').attr('id')
 
-      window.roverData.deleteImage(/*username, img id*/)
-    });
+      console.log(username)
+      console.log(imgId)
+
+      window.roverData.deleteImage(username, imgId);
+      window.location.assign('/account')
+    })
   }
 
   module.accountView = accountView;
