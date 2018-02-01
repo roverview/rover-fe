@@ -24,10 +24,18 @@
         'api_key': apiKey,
       },
       success: function(data) {
+        if (data.photos.length === 0) {
+          $('#no-camera').empty();
+          console.log('no photos available')
+          let htmlNoRover = `<p id="no-camera">No cameras available, please select another date.</p>`;
+          $('.camera button').after(`${htmlNoRover}`);
+        }
+
         console.log('available photos',data.photos);
         console.log('available cameras',data.photos[0].camera);
         let cameras = [];
 
+        $('#no-camera').empty();
         $('#available-cameras').empty();
         for(var i = 0; i < data.photos.length; i++) {
           let cameraName = data.photos[i].camera.name;
@@ -38,11 +46,12 @@
             cameras.push(fullName);
 
             $('#available-cameras').append(`${htmlOption}`);
-          };
-        };
+          }
+        }
       }
-    });
-  };
+    })
+  }
+  
 
   // GET & render photo from Mars Photo API
   roverData.fetchPhoto = (rover, date, camera) => {
@@ -80,7 +89,6 @@
     });
   };
 
-
   // Change date format from 2018-01-28 to 01-28-2018
   roverData.renderDate = date => {
     let newDate = date.split('-');
@@ -109,7 +117,6 @@
     });
   };
 
-
   /* ROVERVIEW API - USERS */
   // POST (create) user
   roverData.addUser = username => {
@@ -137,8 +144,6 @@
         console.log(data);
         localStorage.username = data.rows[0].username;
         localStorage.user_id = data.rows[0].id;
-        // change pages to logged in results
-        // add code here to loop through all photos linked to username...? Probably...?
       }
     });
   };
@@ -193,7 +198,6 @@
     });
   };
 
-
   // DELETE (delete) favorite images
   roverData.deleteImage = (username, imgId) => {
     console.log('Delete image - username:', username);
@@ -203,7 +207,6 @@
       url: `${roverViewApi}/db/image/${username}/${imgId}`,
       method: 'DELETE',
       success: console.log('Photo deleted from favorites')
-      // change star to grey star or something?
     });
   };
 
