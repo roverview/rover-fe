@@ -73,7 +73,11 @@ h3 {
     margin-top: 2.5vw;
 }
 
-#no-favorites {
+.logged-in-saved span {
+    color: #FF0000;
+}
+
+ #no-favorites {
     text-align: center;
     margin: 5%;
 }
