@@ -26,8 +26,10 @@
       window.roverData.getImage(userId)
     })
 
-    $('.favorites-container').on('click', 'form a', function() {
-      console.log(this)
+    $('.favorites-container').on('click', 'form a', function(e) {
+      e.preventDefault();
+      console.log('this', this)
+      
       let imgId = $(this).data('imageid')
       let username = $(this).data('itemid')
 
@@ -35,7 +37,8 @@
       console.log('imgId:', imgId)
 
       window.roverData.deleteImage(username, imgId);
-      window.location.assign('/account')
+      $(this).parent().remove();
+
     })
   }
 
