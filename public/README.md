@@ -1,7 +1,12 @@
 ## RoverView
 #RoverView - Code Fellows 301 Final Project
 
-**Author's**: Jay Adams, Melanie Cohen, Bessie Arino and Joshua Frerickson.
+**Author's**: 
+Jay Adams           j.adams011@hotmail.com
+Melanie Cohen       melaniebcohen@gmail.com
+Bessie Arino        brarino@gmail.com
+Joshua Frerickson   uafredrickson@gmail.com
+
 **Version**: 1.0.0 (increment the patch/fix version number up if you make more commits past your first submission)
 
 ## Overview

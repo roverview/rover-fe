@@ -178,7 +178,7 @@
         data.rows.forEach(function(item) {
           let content = `
             <form>
-            <p><strong>Rover:</strong> ${item.rover_name}</p>
+            <p><strong>Rover:</strong> ${item.rover_name.charAt(0).toUpperCase().slice(1)}</p>
             <p><strong>Earth Date:</strong> ${item.earth_date}</p>
             <p><strong>Camera:</strong> ${item.camera_name}</p>
             <img src="${item.image_src}">
