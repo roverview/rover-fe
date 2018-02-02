@@ -75,7 +75,6 @@
 
         let rand = random(0, data.photos.length-1);
         console.log('array length:', data.photos.length);
-        console.log('random:', rand);
 
         let photo = data.photos[rand].img_src;
         let camera = data.photos[rand].camera.full_name;
