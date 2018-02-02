@@ -77,9 +77,9 @@
         console.log('array length:', data.photos.length);
         console.log('random:', rand);
 
-        let photo = data.photos[rand].img_src;
-        let camera = data.photos[rand].camera.full_name;
-        let earthDate = data.photos[rand].earth_date;
+        let photo = data.photos[0].img_src;
+        let camera = data.photos[0].camera.full_name;
+        let earthDate = data.photos[0].earth_date;
 
         let formattedDate = roverData.renderDate(earthDate);
 
