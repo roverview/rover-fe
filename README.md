@@ -2,8 +2,8 @@
 #### Code Fellows 301 Final Project
 
 ## Authors  
-[Jay Adams](https://www.linkedin.com/in/jay-adams-3259a7155/), j.adams011@hotmail.com
-[Bessie Arino](https://www.linkedin.com/in/bessie-arino-848061158/), brarino@gmail.com  
+[Jay Adams](https://www.linkedin.com/in/jay-adams-3259a7155/) j.adams011@hotmail.com  
+[Bessie Arino](https://www.linkedin.com/in/bessie-arino-848061158/) brarino@gmail.com  
 [Melanie Cohen](https://www.linkedin.com/in/cohenmelanie/), melaniebcohen@gmail.com  
 [Joshua Frerickson](https://www.linkedin.com/in/joshua-fredrickson-26567439/), uafredrickson@gmail.com  
 
