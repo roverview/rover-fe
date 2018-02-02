@@ -26,8 +26,8 @@
         username: $('#login-name').val(),
       };
 
-      console.log('user login obj:',User)
-      console.log('user login.username:',User.username)
+      console.log('user login obj:',User);
+      console.log('user login.username:',User.username);
 
       window.roverData.getUser(User.username);
       window.landingView.init();

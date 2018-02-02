@@ -26,7 +26,7 @@
 
     $('main').ready(function() {
       $('section#manifest').show();
-      window.roverData.fetchManifest(rover)
+      window.roverData.fetchManifest(rover);
     })
 
     $('#datepicker').on('change', function(e) {
@@ -35,7 +35,7 @@
       let roverName = ctx.params.rover;
       let pickedDate = $('#alt_date').val();
 
-      console.log('picked date:',pickedDate)
+      console.log('picked date:',pickedDate);
 
       window.roverData.fetchCameras(roverName,pickedDate)
     })
@@ -49,8 +49,8 @@
       let pickedDate = $('#alt_date').val();
       let pickedCamera = $('#available-cameras option:checked').val();
 
-      console.log('picked date:',pickedDate)
-      console.log('picked camera:',pickedCamera)
+      console.log('picked date:',pickedDate);
+      console.log('picked camera:',pickedCamera);
 
       window.roverData.fetchPhoto(roverName, pickedDate, pickedCamera);
     })

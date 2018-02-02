@@ -4,7 +4,7 @@
   var aboutUsView = {};
 
   aboutUsView.init = (ctx, next) => {
-    console.log('hello')
+    console.log('hello');
 
     $('#login').hide();
     $('#create-account').hide();

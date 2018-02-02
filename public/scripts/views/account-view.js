@@ -19,22 +19,22 @@
     } else {
       $('#nav-favorites').hide();
       $('#nav-logout').hide();
-    }
+    };
 
     $('document').ready(function() {    
       let userId = JSON.parse(localStorage.user_id);
-      window.roverData.getImage(userId)
-    })
+      window.roverData.getImage(userId);
+    });
 
     $('.favorites-container').on('click', 'form a', function(e) {
       e.preventDefault();
-      console.log('this', this)
+      console.log('this', this);
       
-      let imgId = $(this).data('imageid')
-      let username = $(this).data('itemid')
+      let imgId = $(this).data('imageid');
+      let username = $(this).data('itemid');
 
-      console.log('username:', username)
-      console.log('imgId:', imgId)
+      console.log('username:', username);
+      console.log('imgId:', imgId);
 
       window.roverData.deleteImage(username, imgId);
       $(this).parent().remove();

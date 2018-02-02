@@ -12,8 +12,8 @@
   /* MARS PHOTO API */
   roverData.fetchCameras = (rover, date) => {
 
-    console.log(rover)
-    console.log(date)
+    console.log(rover);
+    console.log(date);
 
 
     $.ajax({
@@ -29,7 +29,7 @@
           console.log('no photos available')
           let htmlNoRover = `<p id="no-camera">No cameras available, please select another date.</p>`;
           $('.camera button').after(`${htmlNoRover}`);
-        }
+        };
 
         console.log('available photos',data.photos);
         console.log('available cameras',data.photos[0].camera);
@@ -46,11 +46,11 @@
             cameras.push(fullName);
 
             $('#available-cameras').append(`${htmlOption}`);
-          }
-        }
+          };
+        };
       }
-    })
-  }
+    });
+  };
   
 
   // GET & render photo from Mars Photo API
@@ -68,14 +68,6 @@
       },
       success: function(data) {
         console.log('photo data:',data);
-
-        function random(min, max) {
-          return Math.floor(Math.random() * (max - min + 1)) + min; // via MDN docs
-        };
-
-        let rand = random(0, data.photos.length-1);
-        console.log('array length:', data.photos.length);
-        console.log('random:', rand);
 
         let photo = data.photos[0].img_src;
         let camera = data.photos[0].camera.full_name;
@@ -237,4 +229,4 @@
   });
 
   module.roverData = roverData;
-})(window)
+})(window);
