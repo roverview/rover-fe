@@ -217,28 +217,21 @@
         display:block;
     }
 
+
     .main-nav ul {
-        display: none;
+        float: right;
         background-color: rgba(59, 59, 59, 0.7);
         padding: 0;
         list-style: none;
-        width: 100%;
-        clear: both;
-        position: absolute;
+        width: 40%;
+        font-size: 1.5vw;
+        position: relative;
         top: 0px;
         left: 0px;
     }
 
-    .main-nav:hover ul {
-        display: block;
-    }
-
     .main-nav li {
-        width: 100%;
-        font-size: 1.5em;
-        padding-top: .5em;
-        padding-bottom: .5em;
-        border-bottom: 1px solid #ccc;
+        display: inline-flex;
     }
 
     .main-nav a {
