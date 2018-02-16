@@ -213,10 +213,12 @@
     }
 }
 
-
+/* desktop mode */
 @media only screen and (min-width: 781px) {
     header img {
-        max-height: 300px;
+        position: absolute;
+        max-height: 100%;
+        margin: -.75%;
     }
 
     header {
@@ -224,15 +226,16 @@
     }
     
     header h1 {
+        position: top;  
         font-family: 'Orbitron';
         font-weight: bold;
         background-color: #444444;
         color: #FFFFFF;
         text-align: center;
-        margin-top: -3px;
-        font-size: 8.5vw;
-        padding-top: 7%;
-        padding-bottom: 5%;
+        margin-top: -10px;
+        font-size: 4vw;
+        padding-top: 1%;
+        padding-bottom: 1%;
     }
     
     main {
