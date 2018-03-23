@@ -1,94 +1,285 @@
-#datepicker {
-    width: 40%;
-    text-align: center;
+
+@media only screen and (max-width: 385px) {
+
+    #datepicker {
+        width: 40%;
+        text-align: center;
+    }
+    
+    select {
+        width: 40%;
+    }
+    
+    .icon-menu {
+        font-size: 3em;
+        text-align: right;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+    }
+    
+    .main-nav {
+        padding: 0.1em;
+        display:block;
+    }
+    
+    .main-nav ul {
+        display: none;
+        background-color: rgba(59, 59, 59, 0.7);
+        padding: 0;
+        list-style: none;
+        width: 100%;
+        clear: both;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+    }
+    
+    .main-nav:hover ul {
+        display: block;
+    }
+    
+    .main-nav li {
+        width: 100%;
+        font-size: 1.5em;
+        padding-top: .5em;
+        padding-bottom: .5em;
+        border-bottom: 1px solid #ccc;
+    }
+    
+    .main-nav a {
+        padding-left: .5em;
+    }
+    
+    a:link, a:hover, a:visited {
+        color: #FFFFFF;
+        text-decoration: none;
+    }
+    
+    #login, #create-account, #account, #explorer, #results, #about-us {
+        display: none;
+        /* hides these sections for initial load */
+    }
+    
+    #login-form p {
+        margin-top: 2.5vw;
+    }
+    
+    .logged-in-saved span {
+        color: #FF0000;
+    }
+    
+     #no-favorites {
+        text-align: center;
+        margin: 5%;
+    }
+    
+    #manifest h4 {
+        text-align: center;
+        padding-top: 3%;
+        padding-bottom: 2%;
+        font-weight: bold;
+        font-size: 3.8vw;
+    }
+    #manifest p {
+        margin: 1% 20% 0 20%;
+        font-size: 3.3vw;
+        text-align: center;
+        font-weight: bold;
+    }
+    
+    #manifest p span {
+        font-weight: normal;
+    }
+    
+    #manifest p:last-child {
+        padding-bottom: 3%
+    }
 }
 
-select {
-    width: 40%;
+
+@media only screen and (max-width: 780px) and (min-width: 386px) {
+
+    #datepicker {
+        width: 40%;
+        text-align: center;
+    }
+    
+    select {
+        width: 40%;
+    }
+    
+    .icon-menu {
+        font-size: 2em;
+        text-align: right;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+    }
+    
+    .main-nav {
+        padding: 0.1em;
+        display:block;
+    }
+    
+    .main-nav ul {
+        display: none;
+        background-color: rgba(59, 59, 59, 0.7);
+        padding: 0;
+        list-style: none;
+        width: 100%;
+        clear: both;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+    }
+    
+    .main-nav:hover ul {
+        display: block;
+    }
+    
+    .main-nav li {
+        width: 100%;
+        font-size: 1.5em;
+        padding-top: .5em;
+        padding-bottom: .5em;
+        border-bottom: 1px solid #ccc;
+    }
+    
+    .main-nav a {
+        padding-left: .5em;
+    }
+    
+    a:link, a:hover, a:visited {
+        color: #FFFFFF;
+        text-decoration: none;
+    }
+    
+    #login, #create-account, #account, #explorer, #results, #about-us {
+        display: none;
+        /* hides these sections for initial load */
+    }
+    
+    #login-form p {
+        margin-top: 2.5vw;
+    }
+    
+    .logged-in-saved span {
+        color: #FF0000;
+    }
+    
+     #no-favorites {
+        text-align: center;
+        margin: 5%;
+    }
+    
+    #manifest h4 {
+        text-align: center;
+        padding-top: 3%;
+        padding-bottom: 2%;
+        font-weight: bold;
+        font-size: 3.8vw;
+    }
+    #manifest p {
+        margin: 1% 20% 0 20%;
+        font-size: 3.3vw;
+        text-align: center;
+        font-weight: bold;
+    }
+    
+    #manifest p span {
+        font-weight: normal;
+    }
+    
+    #manifest p:last-child {
+        padding-bottom: 3%
+    }
 }
 
-.icon-menu {
-    font-size: 3em;
-    text-align: right;
-    position: absolute;
-    top: 5px;
-    right: 5px;
-}
 
-.main-nav {
-    padding: 0.1em;
-    display:block;
-}
+@media only screen and (min-width: 781px) {
 
-.main-nav ul {
-    display: none;
-    background-color: rgba(59, 59, 59, 0.7);
-    padding: 0;
-    list-style: none;
-    width: 100%;
-    clear: both;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-}
+    #datepicker {
+        width: 40%;
+        text-align: center;
+    }
 
-.main-nav:hover ul {
-    display: block;
-}
+    select {
+        width: 40%;
+    }
 
-.main-nav li {
-    width: 100%;
-    font-size: 1.5em;
-    padding-top: .5em;
-    padding-bottom: .5em;
-    border-bottom: 1px solid #ccc;
-}
+    .icon-menu {
+        display: none;
+    }
 
-.main-nav a {
-    padding-left: .5em;
-}
+    .main-nav {
+        padding: 0.1em;
+        display:block;
+    }
 
-a:link, a:hover, a:visited {
-    color: #FFFFFF;
-    text-decoration: none;
-}
 
-#login, #create-account, #account, #explorer, #results, #about-us {
-    display: none;
-    /* hides these sections for initial load */
-}
+    .main-nav ul {
+        float: right;
+        background-color: rgba(59, 59, 59, 0.7);
+        padding: 0;
+        list-style: none;
+        width: 40%;
+        font-size: 1.5vw;
+        position: relative;
+        top: 0px;
+        left: 0px;
+    }
 
-#login-form p {
-    margin-top: 2.5vw;
-}
+    .main-nav li {
+        display: inline-flex;
+    }
 
-.logged-in-saved span {
-    color: #FF0000;
-}
+    .main-nav a {
+        padding-left: .5em;
+    }
 
- #no-favorites {
-    text-align: center;
-    margin: 5%;
-}
+    a:link, a:hover, a:visited {
+        color: #FFFFFF;
+        text-decoration: none;
+    }
 
-#manifest h4 {
-    text-align: center;
-    padding-top: 3%;
-    padding-bottom: 2%;
-    font-weight: bold;
-    font-size: 3.8vw;
-}
-#manifest p {
-    margin: 1% 20% 0 20%;
-    font-size: 3.3vw;
-    text-align: center;
-    font-weight: bold;
-}
+    #login, #create-account, #account, #explorer, #results, #about-us {
+        display: none;
+        /* hides these sections for initial load */
+    }
 
-#manifest p span {
-    font-weight: normal;
-}
+    #login-form p {
+        margin-top: 2.5vw;
+    }
 
-#manifest p:last-child {
-    padding-bottom: 3%
+    .logged-in-saved span {
+        color: #FF0000;
+    }
+
+    #no-favorites {
+        text-align: center;
+        margin: 5%;
+    }
+
+    #manifest h4 {
+        text-align: center;
+        padding-top: 3%;
+        padding-bottom: 2%;
+        font-weight: bold;
+        font-size: 3.8vw;
+    }
+    #manifest p {
+        margin: 1% 20% 0 20%;
+        font-size: 3.3vw;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    #manifest p span {
+        font-weight: normal;
+    }
+
+    #manifest p:last-child {
+        padding-bottom: 3%
+    }
 }
