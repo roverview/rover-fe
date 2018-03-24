@@ -1,6 +1,5 @@
 
-@media only screen and (max-width: 385px) {
-
+/* @media only screen and (max-width: 385px) { */
     #datepicker {
         width: 40%;
         text-align: center;
@@ -10,53 +9,12 @@
         width: 40%;
     }
     
-    .icon-menu {
-        font-size: 3em;
-        text-align: right;
-        position: absolute;
-        top: 5px;
-        right: 5px;
-    }
-    
-    .main-nav {
-        padding: 0.1em;
-        display:block;
-    }
-    
-    .main-nav ul {
-        display: none;
-        background-color: rgba(59, 59, 59, 0.7);
-        padding: 0;
-        list-style: none;
-        width: 100%;
-        clear: both;
-        position: absolute;
-        top: 0px;
-        left: 0px;
-    }
-    
-    .main-nav:hover ul {
-        display: block;
-    }
-    
-    .main-nav li {
-        width: 100%;
-        font-size: 1.5em;
-        padding-top: .5em;
-        padding-bottom: .5em;
-        border-bottom: 1px solid #ccc;
-    }
-    
-    .main-nav a {
-        padding-left: .5em;
-    }
-    
     a:link, a:hover, a:visited {
         color: #FFFFFF;
         text-decoration: none;
     }
     
-    #login, #create-account, #account, #explorer, #results, #about-us {
+    #login, #create-account, #account, #explorer, #results, #about-us, #manifest {
         display: none;
         /* hides these sections for initial load */
     }
@@ -95,60 +53,9 @@
     #manifest p:last-child {
         padding-bottom: 3%
     }
-}
+/* } */
 
-
-@media only screen and (max-width: 780px) and (min-width: 386px) {
-
-    #datepicker {
-        width: 40%;
-        text-align: center;
-    }
-    
-    select {
-        width: 40%;
-    }
-    
-    .icon-menu {
-        font-size: 2em;
-        text-align: right;
-        position: absolute;
-        top: 5px;
-        right: 5px;
-    }
-    
-    .main-nav {
-        padding: 0.1em;
-        display:block;
-    }
-    
-    .main-nav ul {
-        display: none;
-        background-color: rgba(59, 59, 59, 0.7);
-        padding: 0;
-        list-style: none;
-        width: 100%;
-        clear: both;
-        position: absolute;
-        top: 0px;
-        left: 0px;
-    }
-    
-    .main-nav:hover ul {
-        display: block;
-    }
-    
-    .main-nav li {
-        width: 100%;
-        font-size: 1.5em;
-        padding-top: .5em;
-        padding-bottom: .5em;
-        border-bottom: 1px solid #ccc;
-    }
-    
-    .main-nav a {
-        padding-left: .5em;
-    }
+@media only screen and (max-width: 650px) and (min-width: 386px) {
     
     a:link, a:hover, a:visited {
         color: #FFFFFF;
@@ -186,63 +93,9 @@
         text-align: center;
         font-weight: bold;
     }
-    
-    #manifest p span {
-        font-weight: normal;
-    }
-    
-    #manifest p:last-child {
-        padding-bottom: 3%
-    }
 }
 
-
-@media only screen and (min-width: 781px) {
-
-    #datepicker {
-        width: 40%;
-        text-align: center;
-    }
-
-    select {
-        width: 40%;
-    }
-
-    .icon-menu {
-        display: none;
-    }
-
-    .main-nav {
-        padding: 0.1em;
-        display:block;
-    }
-
-
-    .main-nav ul {
-        float: right;
-        background-color: rgba(59, 59, 59, 0.7);
-        padding: 0;
-        list-style: none;
-        width: 40%;
-        font-size: 1.5vw;
-        position: relative;
-        top: 0px;
-        left: 0px;
-    }
-
-    .main-nav li {
-        display: inline-flex;
-    }
-
-    .main-nav a {
-        padding-left: .5em;
-    }
-
-    a:link, a:hover, a:visited {
-        color: #FFFFFF;
-        text-decoration: none;
-    }
-
+@media only screen and (min-width: 650px) {
     #login, #create-account, #account, #explorer, #results, #about-us {
         display: none;
         /* hides these sections for initial load */
@@ -281,5 +134,21 @@
 
     #manifest p:last-child {
         padding-bottom: 3%
+    }
+}
+
+@media only screen and (min-width: 750px) {
+    .rovers {
+        width: 48%;
+        display: inline-block;
+    }
+    
+    .rovers h3 {
+        padding: 0 0 10px 0;
+        font-size: 3.5vw;
+    }
+    
+    .rovers img {
+        margin: 0px;
     }
 }
