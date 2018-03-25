@@ -164,4 +164,43 @@
     #manifest p:last-child {
         padding-bottom: 10px
     }
+
+    /* ABOUT US */
+    #about-us h2 {
+        padding: 10px 0 10px 0;
+        font-size: 30px;
+        margin-top: 0;
+    }
+
+    #about-us .box {
+        margin: 0 0 10px 0;
+        padding: 20px 10px 5px 0;
+    }
+
+    #about-us h3 {
+        font-size: 25px;
+        padding: 0px 0 10px 0;
+    }
+
+    #about-us img {
+        margin: 10px 10px 0 0;
+        width: 20%;
+        display: inline-block;
+    }
+
+    #about-us .bio {
+        display: inline-block;
+        width: 70%;
+    }
+
+    #about-us p {
+        font-size: 18px;
+        line-height: 1.5;
+        margin: 0 0 15px 0;
+    }
+
+    #bio-brian {
+        margin-top: 40px;
+        float: right;
+    }
 }
