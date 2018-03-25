@@ -7,10 +7,17 @@ input[type="text"] {
 
 footer {
     background-color: #444444;
-    /* height: 40px; */
-    padding: 1px;
     text-align: center;
-    font-size: 1.5vw;
+    font-size: 10px;
+    height: 50px;
+    padding: 0px;
+    margin: 0px;
+}
+
+footer p {
+    margin: 0;
+    padding: 25px 0 0 0;
+    line-height: 0;
 }
 
 form, .box {
@@ -84,10 +91,6 @@ button {
     margin-bottom: 0;
 }
 
-@media only screen and (max-width: 650px) and (min-width: 386px) {
-
-}
-
 /* desktop mode */
 @media only screen and (min-width: 650px) {
     body {
@@ -103,13 +106,13 @@ button {
     #landing {
         display: block;
         background: #000000;
-        padding-bottom: 8vw;
+        padding-bottom: 30px;
     }
 
     #landing h2 {
         margin-top: 0;
-        padding-top: 3vw;
-        font-size: 4vw;
+        padding-top: 10px;
+        font-size: 30px;
     }
 
     /* form, .box {

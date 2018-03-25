@@ -55,47 +55,44 @@ header h1 {
   border-bottom: 1px solid #ccc;
 }
 
-.main-nav a {
-  padding-left: .5em;
-}
-
 @media only screen and (min-width: 650px) {
   .icon-menu {
     display: none;
   }
 
   header {
-    max-height: 500px;
+    height: 60px;
+    padding-top: 5px;
+    max-width: 900px;
   }
 
   header img {
-      z-index: -99;
-      max-height: 100%;
-      position: fixed;
-  }
-
-  header {
-      position: relative;
+      display: none;
   }
   
   header h1 {
+      padding: 12px 0 0 20px;
+      position: absolute;
+      margin: 0 0 0 0;
       z-index: 99;  
-      font-size: 6vw;
-      display: block;
-      background-color: rgba(59, 59, 59, 0.7);
-      margin-top: 37vw;
+      font-size: 25px;
+      display: inline;
+      background-color: rgba(59, 59, 59, 0);
   }
 
   .main-nav {
-    display: block;
-    width: 50%;
+      display: block;
+      width: 50%;
+      margin: 0;
+      padding: 0;
   }
 
   .main-nav ul {
       display: inline-block;
-      font-size: 1.65vw;
+      font-size: 12px;
       background: none;
-      /* position: fixed; */
+      margin: 0;
+      padding: 0;
   }
 
   .main-nav li {
@@ -107,34 +104,26 @@ header h1 {
 
   .main-nav a {
     float: right;
-    padding: 0px;
+    padding: 20px 15px 0 0;
   }
 
   .main-nav span {
       display: none;
   }
 
-  .main-nav a {
-      margin: 1.5vw;
-  }
-
   a:link, a:hover, a:visited {
       color: #FFFFFF;
       text-decoration: none;
   }
-}
 
-@media only screen and (min-width: 750px) {
-  .main-nav ul {
-    font-size: 1.45vw;
+  /* HERO IMAGE */
+  #hero-image {
+    max-width: 900px;
+    display: block;
+    text-align: center;
   }
-
-  header {
-    max-height: 550px;
-  }
-
-  header h1 {
-    margin-top: 30vw;
-    padding: 3.5vw;
+  #hero-image img {
+    width: 100%;
+    border-radius: 5px;
   }
 }

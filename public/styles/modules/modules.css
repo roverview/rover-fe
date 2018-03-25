@@ -14,7 +14,7 @@
         text-decoration: none;
     }
     
-    #login, #create-account, #account, #explorer, #results, #about-us, #manifest {
+    #login, #create-account, #account, #explorer, #results, #about-us, #hero-image, #manifest {
         display: none;
         /* hides these sections for initial load */
     }
@@ -61,12 +61,7 @@
         color: #FFFFFF;
         text-decoration: none;
     }
-    
-    #login, #create-account, #account, #explorer, #results, #about-us {
-        display: none;
-        /* hides these sections for initial load */
-    }
-    
+        
     #login-form p {
         margin-top: 2.5vw;
     }
@@ -96,11 +91,6 @@
 }
 
 @media only screen and (min-width: 650px) {
-    #login, #create-account, #account, #explorer, #results, #about-us {
-        display: none;
-        /* hides these sections for initial load */
-    }
-
     #login-form p {
         margin-top: 2.5vw;
     }
@@ -135,20 +125,38 @@
     #manifest p:last-child {
         padding-bottom: 3%
     }
-}
 
-@media only screen and (min-width: 750px) {
+    #landing .box {
+        margin: 0;
+        padding: 10px 10px 20px 10px;
+    }
     .rovers {
-        width: 48%;
+        width: 46%;
         display: inline-block;
     }
     
-    .rovers h3 {
-        padding: 0 0 10px 0;
-        font-size: 3.5vw;
+    .rovers a {
+        display: block;
+        padding: 0;
+        margin: 0;
     }
     
-    .rovers img {
-        margin: 0px;
+    .rovers h3 {
+        padding: 10px 0 10px 0;
+        font-size: 20px;
+    }
+
+    .rovers:first-child {
+        margin-left: 20px;
+        margin-right: 0;
+    }
+
+    .rovers:last-child {
+        margin-right: 20px;
+        margin-left: 0;
+    }
+    
+    #landing img {
+        margin: 0;
     }
 }
