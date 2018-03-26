@@ -1,0 +1,139 @@
+header img {
+  width: 100%;
+}
+
+header {
+  position: relative;
+}
+
+header h1 {
+  font-family: 'Orbitron';
+  font-weight: bold;
+  background-color: #444444;
+  color: #FFFFFF;
+  text-align: center;
+  margin-top: -3px;
+  font-size: 8.5vw;
+  padding-top: 7%;
+  padding-bottom: 5%;
+}
+
+#desktop-h1 {
+  display: none;
+}
+
+.icon-menu {
+  font-size: 3em;
+  text-align: right;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.main-nav {
+  padding: 0.1em;
+  display: block;
+}
+
+.main-nav ul {
+  display: none;
+  background-color: rgba(59, 59, 59, 0.7);
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  clear: both;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.main-nav:hover ul {
+  display: block;
+}
+
+.main-nav li {
+  width: 100%;
+  font-size: 1.5em;
+  padding-top: .5em;
+  padding-bottom: .5em;
+  border-bottom: 1px solid #ccc;
+}
+
+@media only screen and (min-width: 650px) {
+  #mobile-h1 {
+    display: none;
+  }
+
+  header {
+    height: 60px;
+    padding-top: 5px;
+    max-width: 900px;
+  }
+
+  header img, .icon-menu {
+      display: none;
+  }
+  
+  header h1 {
+      padding: 12px 0 0 20px;
+      position: absolute;
+      margin: 0 0 0 0;
+      z-index: 99;  
+      font-size: 25px;
+      display: inline;
+      background-color: rgba(59, 59, 59, 0);
+  }
+
+  #desktop-h1 {
+    display: block;
+    width: 30%;
+  }
+
+  .main-nav {
+      display: inline;
+      margin: 0;
+      padding: 0;
+      float: right;
+  }
+
+  .main-nav ul {
+      position: relative;
+      display: inline;
+      font-size: 12px;
+      background: none;
+      margin: 0;
+      padding: 0;
+  }
+
+  .main-nav li {
+      display: inline;
+      padding: 0px;
+      margin: 0px;
+      border: none;
+  }
+
+  .main-nav a {
+      float: left;
+      padding: 15px 15px 0 0;
+  }
+
+  .main-nav span {
+      display: none;
+  }
+
+  a:link, a:hover, a:visited {
+      color: #FFFFFF;
+      text-decoration: none;
+  }
+
+  /* HERO IMAGE */
+  #hero-image {
+    max-width: 900px;
+    display: block;
+    text-align: center;
+  }
+  #hero-image img {
+    width: 100%;
+    border-radius: 5px;
+  }
+}

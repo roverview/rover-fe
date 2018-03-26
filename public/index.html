@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Rover</title>
+  <title>RoverView</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link rel="stylesheet" href="styles/vendor/reset.css">
@@ -10,14 +10,15 @@
   <link rel="stylesheet" href="styles/base/base.css">
   <link rel="stylesheet" href="styles/layout/layout.css">
   <link rel="stylesheet" href="styles/modules/modules.css">
+  <link rel="stylesheet" href="styles/modules/nav.css">
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 </head>
 <body>
-
   <header>
+    <h1 id="desktop-h1"><a href="/">RoverView</a></h1>
     <nav class="main-nav" onclick="void(0)">
       <div class="icon-menu"></div>
       <ul>
@@ -44,10 +45,13 @@
       </ul>
     </nav>
     <img id="main-img" src="images/mars2020-mast-rover-head-br2.jpg">
-    <h1><a href="/">RoverView</a></h1>
+    <h1 id="mobile-h1"><a href="/">RoverView</a></h1>
   </header>
 
   <main>
+    <section id="hero-image">
+        <img id="main-img" src="images/mars2020-hero-img.jpg">
+    </section>
     <section id="login">
       <h2>Login</h2>
       <form id="login-form">
@@ -61,27 +65,31 @@
       <h2>Create Username</h2>
       <form id="create-form">
         <input type="text" id="create-name" placeholder="create username" required>
-        <button type="submit">Create</button>
+        <button type="submit">Create Account</button>
       </form>
     </section>
 
     <section id="account">
       <h2>Favorites</h2>
       <div class="favorites-container"></div>
-      <p id="no-favorites">these aren't the droids you're looking for.....   <br><br>You have no favorite photos.</p>
+      <p id="no-favorites">These aren't the droids you're looking for...   <br><br>You have no favorite photos.</p>
     </section>
 
     <section id="landing">
       <h2>Pick a Rover</h2>
       <div class="box">
-        <a href="/explorer/curiosity">
-          <h3>Curiosity</h3>
-          <img src="images/curiosity.jpg">
-        </a>
-        <a href="/explorer/opportunity">
-          <h3>Opportunity</h3>
-          <img src="images/rover2_400 (1).jpg">
-        </a>
+        <div class="rovers">
+          <a href="/explorer/curiosity">
+            <h3>Curiosity</h3>
+            <img src="images/curiosity.jpg">
+          </a>
+        </div>
+        <div class="rovers">
+          <a href="/explorer/opportunity">
+            <h3>Opportunity</h3>
+            <img src="images/rover2_400 (1).jpg">
+          </a>
+        </div>
       </div>
     </section>
 
@@ -89,7 +97,7 @@
       <h2>Name of Rover</h2>
 
       <form class="camera">
-        <p>Pick A Date to view:</p>
+        <p>Pick a date to view:</p>
         <p>
           <input type="text" id="datepicker" alt="#alt_date">
           <input type="hidden" id="alt_date">
@@ -127,7 +135,7 @@
         </p>
 
         <p class="not-logged-in">
-          <a href="/login">Please login in to save favorites. &#9829</a>
+          <a href="/login">Please log in in to save favorites. &#9829</a>
         </p>
       </div>
     </section>
@@ -145,79 +153,87 @@
       <h2>About Us</h2>
 
       <div class="box">
-        <h3>Jay Adams</h3>
         <img src="images/about/jay.jpg">
-        <p> Likes a good cup of coffee. His motto is decelerate into the curves and accelerate out of 'em.! Aspires to be Doc Brown, becuase,"Roads?!? Where we're going, we don't need roads." </p>
-        <p><span class="icon-envelop"></span> j.adams011@hotmail.com</p> 
-        <p>
-          <a href="https://github.com/jayadams011" target="_blank">
-            <span class="icon-github"></span> jayadams011
-          </a>
-        </p>
-        <p>
-          <a href="https://www.linkedin.com/in/jay-adams-3259a7155" target="_blank">
-            <span class="icon-linkedin"></span> LinkedIn
-          </a>
-        </p>
+        <div class="bio">
+          <h3>Jay Adams</h3>
+          <p> Likes a good cup of coffee. His motto is decelerate into the curves and accelerate out of 'em! Aspires to be Doc Brown, becuase,"Roads?!? Where we're going, we don't need roads." </p>
+          <p><span class="icon-envelop"></span> j.adams011@hotmail.com</p> 
+          <p>
+            <a href="https://github.com/jayadams011" target="_blank">
+              <span class="icon-github"></span> jayadams011
+            </a>
+          </p>
+          <p>
+            <a href="https://www.linkedin.com/in/jay-adams-3259a7155" target="_blank">
+              <span class="icon-linkedin"></span> LinkedIn
+            </a>
+          </p>
+        </div>
       </div>
 
       <div class="box">
-        <h3>Bessie Arino</h3>
         <img src="images/about/bessie.jpg">
-        <p> I was previously working in Customer Service and am now my father's care giver. I was introduced to Code Fellows from a friend that was also interested in attending. I'm at Code Fellows to become a Full-stack JavaScript Developer. Eventually I would like to become a web developer in the cannabis industry.</p> 
-        <p><span class="icon-envelop"></span> brarino@gmail.com</p> 
-        <p>
-          <a href="https://github.com/bishang" target="_blank">
-            <span class="icon-github"></span> bishang
-          </a>
-        </p>
-        <p>
-          <a href="https://www.linkedin.com/in/bessie-arino-848061158/" target="_blank">
-            <span class="icon-linkedin"></span> LinkedIn
-          </a>
-        </p>
+        <div class="bio">
+          <h3>Bessie Arino</h3>
+          <p> I was previously working in Customer Service and am now my father's care giver. I was introduced to Code Fellows from a friend that was also interested in attending. I'm at Code Fellows to become a Full-stack JavaScript Developer. Eventually I would like to become a web developer in the cannabis industry.</p> 
+          <p><span class="icon-envelop"></span> brarino@gmail.com</p> 
+          <p>
+            <a href="https://github.com/bishang" target="_blank">
+              <span class="icon-github"></span> bishang
+            </a>
+          </p>
+          <p>
+            <a href="https://www.linkedin.com/in/bessie-arino-848061158/" target="_blank">
+              <span class="icon-linkedin"></span> LinkedIn
+            </a>
+          </p>
+        </div>
       </div>
 
       <div class="box">
-        <h3>Melanie Cohen</h3>
         <img src="images/about/melanie.jpg">
-        <p>Melanie is a Program Manager-turned-Dev with a passion for innovative technology. Having grown up on a healthy diet of sci-fi books and entertainment, she's excited to be able to use her newly acquired skills to glimpse a bit more of our solar system. "There's a frood who really knows where [her] towel is!"</p>
-        <p><span class="icon-envelop"></span> melaniebcohen@gmail.com</p>
-        <p>
-          <a href="https://github.com/melaniebcohen" target="_blank">
-            <span class="icon-github"></span> melaniebcohen
-          </a>
-        </p>
-        <p>
-          <a href="https://www.linkedin.com/in/cohenmelanie/" target="_blank">
-            <span class="icon-linkedin"></span> LinkedIn
-          </a>
-        </p>
+        <div class="bio">
+          <h3>Melanie Cohen</h3>
+          <p>Melanie is a Program Manager-turned-Dev with a passion for innovative technology. Having grown up on a healthy diet of sci-fi books and entertainment, she's excited to be able to use her newly acquired skills to glimpse a bit more of our solar system. "There's a frood who really knows where [her] towel is!"</p>
+          <p><span class="icon-envelop"></span> melaniebcohen@gmail.com</p>
+          <p>
+            <a href="https://github.com/melaniebcohen" target="_blank">
+              <span class="icon-github"></span> melaniebcohen
+            </a>
+          </p>
+          <p>
+            <a href="https://www.linkedin.com/in/cohenmelanie/" target="_blank">
+              <span class="icon-linkedin"></span> LinkedIn
+            </a>
+          </p>
+        </div>
       </div>
 
-
-
       <div class="box">
-        <h3>Joshua Fredrickson</h3>
         <img src="images/about/joshua.jpg">
-        <p>Joshua Fredrickson is an always improving, passionate about innovation. Who is focused on being a full stack JavaScript Developer. He lives by the mottos "Never tell me the odds!" and "Do. Or do not. There is no try."</p>
-        <p><span class="icon-envelop"></span> uafredrickson@gmail.com</p>
-        <p>
-          <a href="https://github.com/Joshua-Fredrickson" target="_blank">
-            <span class="icon-github"></span> Joshua-Fredrickson
-          </a>
-        </p>
-        <p>
-          <a href="https://www.linkedin.com/in/joshua-fredrickson-26567439/" target="_blank">
-            <span class="icon-linkedin"></span> LinkedIn
-          </a>
-        </p>
+        <div class="bio">
+          <h3>Joshua Fredrickson</h3>
+          <p>Joshua Fredrickson is an always improving, passionate about innovation. Who is focused on being a full stack JavaScript Developer. He lives by the mottos "Never tell me the odds!" and "Do. Or do not. There is no try."</p>
+          <p><span class="icon-envelop"></span> uafredrickson@gmail.com</p>
+          <p>
+            <a href="https://github.com/Joshua-Fredrickson" target="_blank">
+              <span class="icon-github"></span> Joshua-Fredrickson
+            </a>
+          </p>
+          <p>
+            <a href="https://www.linkedin.com/in/joshua-fredrickson-26567439/" target="_blank">
+              <span class="icon-linkedin"></span> LinkedIn
+            </a>
+          </p>
+        </div>
       </div>
 
       <div class="box">
-        <h3>Senior Instructor: Brian Nations</h3>
         <img src="images/about/brian.jpg">
-        <p>Channels Zaphod Beeblebrox, because, "I'm so hip you need a step ladder to see over my pelvis".</p>
+        <div class="bio" id="bio-brian">
+          <h3>Senior Instructor: Brian Nations</h3>
+          <p>Channels Zaphod Beeblebrox, because, "I'm so hip you need a step ladder to see over my pelvis".</p>
+        </div>
       </div>
     </section>
     

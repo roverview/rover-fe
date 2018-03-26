@@ -1,6 +1,4 @@
 
-@media only screen and (max-width: 385px) {
-
     #datepicker {
         width: 40%;
         text-align: center;
@@ -9,46 +7,17 @@
     select {
         width: 40%;
     }
-    
-    .icon-menu {
-        font-size: 3em;
-        text-align: right;
-        position: absolute;
-        top: 5px;
-        right: 5px;
-    }
-    
-    .main-nav {
-        padding: 0.1em;
-        display:block;
-    }
-    
-    .main-nav ul {
-        display: none;
-        background-color: rgba(59, 59, 59, 0.7);
-        padding: 0;
-        list-style: none;
-        width: 100%;
-        clear: both;
-        position: absolute;
-        top: 0px;
-        left: 0px;
-    }
-    
-    .main-nav:hover ul {
-        display: block;
-    }
-    
-    .main-nav li {
-        width: 100%;
-        font-size: 1.5em;
-        padding-top: .5em;
-        padding-bottom: .5em;
-        border-bottom: 1px solid #ccc;
-    }
-    
-    .main-nav a {
-        padding-left: .5em;
+
+    #explorer select {
+        padding: 8px !important;
+        height: auto !important;
+        line-height: 14px !important;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        width: 42% !important;
+        border-radius: 1vw;
+        border: none;
     }
     
     a:link, a:hover, a:visited {
@@ -56,7 +25,7 @@
         text-decoration: none;
     }
     
-    #login, #create-account, #account, #explorer, #results, #about-us {
+    #login, #create-account, #account, #explorer, #results, #about-us, #hero-image, #manifest {
         display: none;
         /* hides these sections for initial load */
     }
@@ -95,159 +64,8 @@
     #manifest p:last-child {
         padding-bottom: 3%
     }
-}
 
-
-@media only screen and (max-width: 780px) and (min-width: 386px) {
-
-    #datepicker {
-        width: 40%;
-        text-align: center;
-    }
-    
-    select {
-        width: 40%;
-    }
-    
-    .icon-menu {
-        font-size: 2em;
-        text-align: right;
-        position: absolute;
-        top: 5px;
-        right: 5px;
-    }
-    
-    .main-nav {
-        padding: 0.1em;
-        display:block;
-    }
-    
-    .main-nav ul {
-        display: none;
-        background-color: rgba(59, 59, 59, 0.7);
-        padding: 0;
-        list-style: none;
-        width: 100%;
-        clear: both;
-        position: absolute;
-        top: 0px;
-        left: 0px;
-    }
-    
-    .main-nav:hover ul {
-        display: block;
-    }
-    
-    .main-nav li {
-        width: 100%;
-        font-size: 1.5em;
-        padding-top: .5em;
-        padding-bottom: .5em;
-        border-bottom: 1px solid #ccc;
-    }
-    
-    .main-nav a {
-        padding-left: .5em;
-    }
-    
-    a:link, a:hover, a:visited {
-        color: #FFFFFF;
-        text-decoration: none;
-    }
-    
-    #login, #create-account, #account, #explorer, #results, #about-us {
-        display: none;
-        /* hides these sections for initial load */
-    }
-    
-    #login-form p {
-        margin-top: 2.5vw;
-    }
-    
-    .logged-in-saved span {
-        color: #FF0000;
-    }
-    
-     #no-favorites {
-        text-align: center;
-        margin: 5%;
-    }
-    
-    #manifest h4 {
-        text-align: center;
-        padding-top: 3%;
-        padding-bottom: 2%;
-        font-weight: bold;
-        font-size: 3.8vw;
-    }
-    #manifest p {
-        margin: 1% 20% 0 20%;
-        font-size: 3.3vw;
-        text-align: center;
-        font-weight: bold;
-    }
-    
-    #manifest p span {
-        font-weight: normal;
-    }
-    
-    #manifest p:last-child {
-        padding-bottom: 3%
-    }
-}
-
-
-@media only screen and (min-width: 781px) {
-
-    #datepicker {
-        width: 40%;
-        text-align: center;
-    }
-
-    select {
-        width: 40%;
-    }
-
-    .icon-menu {
-        display: none;
-    }
-
-    .main-nav {
-        padding: 0.1em;
-        display:block;
-    }
-
-
-    .main-nav ul {
-        float: right;
-        background-color: rgba(59, 59, 59, 0.7);
-        padding: 0;
-        list-style: none;
-        width: 40%;
-        font-size: 1.5vw;
-        position: relative;
-        top: 0px;
-        left: 0px;
-    }
-
-    .main-nav li {
-        display: inline-flex;
-    }
-
-    .main-nav a {
-        padding-left: .5em;
-    }
-
-    a:link, a:hover, a:visited {
-        color: #FFFFFF;
-        text-decoration: none;
-    }
-
-    #login, #create-account, #account, #explorer, #results, #about-us {
-        display: none;
-        /* hides these sections for initial load */
-    }
-
+@media only screen and (min-width: 650px) {
     #login-form p {
         margin-top: 2.5vw;
     }
@@ -261,18 +79,97 @@
         margin: 5%;
     }
 
+    /* LANDING PAGE - SELECT A ROVER */
+    #landing .box {
+        margin: 0;
+        padding: 10px 10px 20px 10px;
+    }
+    
+    .rovers {
+        width: 46%;
+        display: inline-block;
+    }
+    
+    .rovers a {
+        display: block;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .rovers h3 {
+        padding: 10px 0 10px 0;
+        font-size: 20px;
+    }
+
+    .rovers:first-child {
+        margin-left: 20px;
+        margin-right: 0;
+    }
+
+    .rovers:last-child {
+        margin-right: 20px;
+        margin-left: 0;
+    }
+    
+    #landing img {
+        margin: 0;
+    }
+
+    /* EXPLORER - ROVER SELECTED */
+    #explorer h2 {
+        padding: 10px 0 10px 0;
+        font-size: 30px;
+        margin-top: 0;
+    }
+
+    #explorer form {
+        margin: 0 0 20px 0;
+        padding: 20px 0 20px 0;
+        line-height: 1;
+    }
+
+    div.ui-datepicker {
+        font-size: 18px;
+    }
+
+    #explorer p {
+        padding: 0;
+        margin: 0 0 0 0;
+        font-size: 18px;
+        line-height: 1.5;
+    }
+
+    /* EXPLORER - ROVER SELECTED - SEARCH RESULTS */
+    #results .box {
+        margin: 0;
+    }
+
+    #results p {
+        padding: 5px 0 0 0;
+        margin: 0;
+        font-size: 20px;
+        line-height: 1;
+    }
+
+    #results img {
+        margin-top: 10px;
+        width: 70%;
+    }
+
+    /* EXPLORER - ROVER SELECTED - MISSION MANIFEST */
     #manifest h4 {
         text-align: center;
-        padding-top: 3%;
-        padding-bottom: 2%;
-        font-weight: bold;
-        font-size: 3.8vw;
+        padding: 10px 0 10px 0;
+        font-size: 20px;
     }
+
     #manifest p {
-        margin: 1% 20% 0 20%;
-        font-size: 3.3vw;
+        margin: 10px 20px 0px 20px;
+        padding: 0;
+        font-size: 18px;
         text-align: center;
         font-weight: bold;
+        line-height: 1;
     }
 
     #manifest p span {
@@ -280,6 +177,117 @@
     }
 
     #manifest p:last-child {
-        padding-bottom: 3%
+        padding-bottom: 10px
+    }
+
+    /* LOG IN */
+    #login h2 {
+        padding: 10px 0 10px 0;
+        font-size: 30px;
+        margin-top: 0;
+    }
+
+    #login form {
+        margin: 0 0 20px 0;
+        padding: 20px 10px 5px 0;
+    }
+
+    #login input {
+        width: 50%;        
+    }
+
+    #login p {
+        padding: 12px;
+        font-size: 16px;
+        text-align: center;
+        line-height: 1;
+    }
+    
+    /* CREATE ACCOUNT */
+    #create-account h2 {
+        padding: 10px 0 10px 0;
+        font-size: 30px;
+        margin-top: 0;
+    }
+
+    #create-account form {
+        margin: 0 0 100px 0;
+    }
+
+    #create-account input {
+        width: 50%;        
+        margin: 20px 0 20px 0;
+    }
+
+    /* FAVORITES */
+    #account h2 {
+        padding: 10px 0 10px 0;
+        font-size: 30px;
+        margin-top: 0;
+    }
+
+    #account {
+        padding: 12px;
+        font-size: 18px;
+        text-align: center;
+        line-height: 1;
+    }
+
+    .favorites-container form {
+        margin: 0 0 20px 0;
+        padding: 20px 10px 5px 0;
+    }
+
+    .favorites-container p {
+        margin: 0 0 3px 0 !important;
+        padding: 0 !important;
+        line-height: 1.5;
+    }
+
+    .favorites-container img {
+        width: 60%;
+    }
+
+    #no-favorites {
+        margin-bottom: 60px;
+    }
+    
+    /* ABOUT US */
+    #about-us h2 {
+        padding: 10px 0 10px 0;
+        font-size: 30px;
+        margin-top: 0;
+    }
+
+    #about-us .box {
+        margin: 0 0 10px 0;
+        padding: 20px 10px 5px 0;
+    }
+
+    #about-us h3 {
+        font-size: 25px;
+        padding: 0px 0 10px 0;
+    }
+
+    #about-us img {
+        margin: 10px 10px 0 0;
+        width: 20%;
+        display: inline-block;
+    }
+
+    #about-us .bio {
+        display: inline-block;
+        width: 70%;
+    }
+
+    #about-us p {
+        font-size: 18px;
+        line-height: 1.5;
+        margin: 0 0 15px 0;
+    }
+
+    #bio-brian {
+        margin-top: 40px;
+        float: right;
     }
 }
