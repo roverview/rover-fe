@@ -7,6 +7,18 @@
     select {
         width: 40%;
     }
+
+    #explorer select {
+        padding: 8px !important;
+        height: auto !important;
+        line-height: 14px !important;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        width: 42% !important;
+        border-radius: 1vw;
+        border: none;
+    }
     
     a:link, a:hover, a:visited {
         color: #FFFFFF;
@@ -116,6 +128,10 @@
         line-height: 1;
     }
 
+    div.ui-datepicker {
+        font-size: 18px;
+    }
+
     #explorer p {
         padding: 0;
         margin: 0 0 0 0;
@@ -139,7 +155,6 @@
         margin-top: 10px;
         width: 70%;
     }
-
 
     /* EXPLORER - ROVER SELECTED - MISSION MANIFEST */
     #manifest h4 {
@@ -165,6 +180,78 @@
         padding-bottom: 10px
     }
 
+    /* LOG IN */
+    #login h2 {
+        padding: 10px 0 10px 0;
+        font-size: 30px;
+        margin-top: 0;
+    }
+
+    #login form {
+        margin: 0 0 20px 0;
+        padding: 20px 10px 5px 0;
+    }
+
+    #login input {
+        width: 50%;        
+    }
+
+    #login p {
+        padding: 12px;
+        font-size: 16px;
+        text-align: center;
+        line-height: 1;
+    }
+    
+    /* CREATE ACCOUNT */
+    #create-account h2 {
+        padding: 10px 0 10px 0;
+        font-size: 30px;
+        margin-top: 0;
+    }
+
+    #create-account form {
+        margin: 0 0 100px 0;
+    }
+
+    #create-account input {
+        width: 50%;        
+        margin: 20px 0 20px 0;
+    }
+
+    /* FAVORITES */
+    #account h2 {
+        padding: 10px 0 10px 0;
+        font-size: 30px;
+        margin-top: 0;
+    }
+
+    #account {
+        padding: 12px;
+        font-size: 18px;
+        text-align: center;
+        line-height: 1;
+    }
+
+    .favorites-container form {
+        margin: 0 0 20px 0;
+        padding: 20px 10px 5px 0;
+    }
+
+    .favorites-container p {
+        margin: 0 0 3px 0 !important;
+        padding: 0 !important;
+        line-height: 1.5;
+    }
+
+    .favorites-container img {
+        width: 60%;
+    }
+
+    #no-favorites {
+        margin-bottom: 60px;
+    }
+    
     /* ABOUT US */
     #about-us h2 {
         padding: 10px 0 10px 0;

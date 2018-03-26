@@ -18,6 +18,10 @@ header h1 {
   padding-bottom: 5%;
 }
 
+#desktop-h1 {
+  display: none;
+}
+
 .icon-menu {
   font-size: 3em;
   text-align: right;
@@ -56,7 +60,7 @@ header h1 {
 }
 
 @media only screen and (min-width: 650px) {
-  .icon-menu {
+  #mobile-h1 {
     display: none;
   }
 
@@ -66,7 +70,7 @@ header h1 {
     max-width: 900px;
   }
 
-  header img {
+  header img, .icon-menu {
       display: none;
   }
   
@@ -80,15 +84,21 @@ header h1 {
       background-color: rgba(59, 59, 59, 0);
   }
 
+  #desktop-h1 {
+    display: block;
+    width: 30%;
+  }
+
   .main-nav {
-      display: block;
-      width: 50%;
+      display: inline;
       margin: 0;
       padding: 0;
+      float: right;
   }
 
   .main-nav ul {
-      display: inline-block;
+      position: relative;
+      display: inline;
       font-size: 12px;
       background: none;
       margin: 0;
@@ -103,8 +113,8 @@ header h1 {
   }
 
   .main-nav a {
-    float: right;
-    padding: 20px 15px 0 0;
+      float: left;
+      padding: 15px 15px 0 0;
   }
 
   .main-nav span {
